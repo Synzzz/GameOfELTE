@@ -25,7 +25,7 @@
 - **Rossz időpont:** Egy általad kiválasztott tárgy rossz időpontban van, ezért leadod
 - **Kártya:** Felhúzol egy szerencsekártyát
 - **Szórakozás:** Szórakozni voltál, ezért fizetned kell 10 000 Ft-ot
-- **4.**** hiányzás:** Egy általad kiválasztott tárgyból összegyűlt a 4. hiányzásod, ezért azt a tárgyat elbuktad, add le.
+- **4.hiányzás:** Egy általad kiválasztott tárgyból összegyűlt a 4. hiányzásod, ezért azt a tárgyat elbuktad, add le.
 - **Elengedés:** Egy általad kiválasztott tárgy túl nehéznek bizonyult, ezért úgy döntesz nem folytatod tovább ebben a félévben, add le.
 - **Felsőbbéves jegyzete:** Sikerült megszerezned egy felsőbb éves hallgató jegyzetét, ezért plusz tudásra teszel szert egy általad választott tárgyból
 - **Vizsga:** Itt tudsz vizsgázni a tárgyaidból. Amikor egy ilyen mezőre lépsz az összes olyan tárgyad sikeres lesz, ahol volt megszerzett tudásod.
@@ -38,14 +38,18 @@ Kezdetben mindenki 300 000 Ft pénzel indít a Start mezőről. Mindenki egymás
 Ha egy adott játékos a Start mezőre lép, és fizetős képzésen van be kell fizetni e 300 000 Ft-ot. Ha egy játékosnak bármilyen fizetési kötelezettsége támad, de nincs elegendő pénze kiesett a játékból.
 
 Ha egy játékos túllépi a 9. félévet (tehát a 10. félévtől) automatikusan átkerül költségtérítéses képzésre. Szerencsekártyával is át lehet kerülni költségtérítéses képzésre.
-
 Ha egy játékos egy tárgyat a 3. tárgyfelvételre sem teljesít („Negyedik tárgyfelvétel„ szerencsekártyával 4.) kiesik.
+
+Minden tárgy elvégzéséhez tudásra van szükség. A tudást a táblán lévő munka / tanulás mezők segítségével, vagy szerencsekártyákkal lehet megszerezni.
+
+Az nyer, aki a legtovább marad játékban, vagy aki előbb elvégzi az összes tárgyat.
+
 
 ## Szerencsekártyák
 
 - **Átsorolás:** Rossz tanulmányi átlagod miatt a félév végén át fognak rakni költségtérítéses képzésre.
 - **Ösztöndíj:** Jó tanulmányi átlagod miatt kapsz 150 000 Ft ösztöndíjat.
-- **Mosi mega:** Bementél Mosi Zoltán korepetálására, ezért tudást szerzel egy általad kiválasztott tárgyból.
+- **Mosi mega:** Bementél Mosi pajtás felkészítőjére, ezért tudást szerzel egy általad kiválasztott tárgyból.
 - **Negyedik tárgyfelvétel:** Ez egy megtartható kártya. Ha egy tárgy nem sikerül 3. tárgyfelvételre sem, akkor felhasználható egyszer.
 - **Tudás:** Korábban megszerzett tudásod miatt nem kell készülnöd egy általad kiválasztott tárgyra (tudást ad egy tárgyhoz).
 - **Puskázás:** Rajtakaptak, hogy puskázol, ezért egy véletlenszerűen kiválasztott tárgyat elbuksz.

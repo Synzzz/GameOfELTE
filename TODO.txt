@@ -1,0 +1,15 @@
+Szerver:
+	-ha egy kliens lecsatlakozik, a számlálóból kilőni, a többi kliens számát állitani?
+	-mit küldünk át? byte/json
+	-játék menet függvények
+	-játék classok: tábla,kártya,player
+	
+	
+Kliens:
+	-minden
+
+Tesztek:
+	-minden
+
+Scriptek:
+	-minden
