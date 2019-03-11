@@ -1,15 +1,19 @@
 Szerver:
-	-ha egy kliens lecsatlakozik, a számlálóból kilőni, a többi kliens számát állitani?
-	-mit küldünk át? byte/json
-	-játék menet függvények
-	-játék classok: tábla,kártya,player
-	
+	-kliens lecsatlakozás kezelése
+	-szerver fájlok
+	-komment TODO-k
 	
 Kliens:
 	-minden
 
 Tesztek:
-	-minden
+	-szerver:
+		játékmenet teszt
+		fel-le csatlakozások
+		max játékosszám felett csatlakozások
+		
+	-kliens:
+		minden
 
 Scriptek:
-	-minden
+	-maven beállitása

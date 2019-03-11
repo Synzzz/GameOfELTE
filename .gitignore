@@ -1,7 +1,6 @@
-/server/nbproject/private/
-/server/build/
 *.class
 *.docx
-*.xml
 *.properties
 server/manifest.mf
+*.mf
+/server/target/
