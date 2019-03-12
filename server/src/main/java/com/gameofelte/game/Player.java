@@ -11,6 +11,7 @@ public class Player
     private final List<LuckyCard> luckyCards = new ArrayList<>();
     private final List<Subject> completedSubjects = new ArrayList<>();
     private final List<Subject> registeredSubjects = new ArrayList<>();
+    private final List<Subject> learnedSubjects = new ArrayList<>();
     private final int playerIndex;
     private final IGameService game;
     
@@ -69,5 +70,47 @@ public class Player
     public List<Subject> getRegisteredSubjects() 
     {
         return registeredSubjects;
+    }
+    
+    // TODO
+    public void beginUnregisterSubject(){
+        
+    }
+    
+    // TODO
+    public void beginCourseRequest(){
+        
+        
+    }
+    
+    public List<Subject> getLearnedSubjects() 
+    {
+        return learnedSubjects;
+    }
+    
+    public void learnSubject(Subject subject)
+    {
+        learnedSubjects.add(subject);
+    }
+    
+    public void removeSubjectByIndex(int num){
+        registeredSubjects.remove(num);
+    }
+    
+    // TODO
+    public void pickingLuckyCard() throws Exception
+    {
+        
+    }
+    
+    // TODO
+    public void beginLearnSubject()
+    {
+        
+    }
+    // TODO
+    public void beginChoiceWorkStudy(){
+        
+    
     }
 }

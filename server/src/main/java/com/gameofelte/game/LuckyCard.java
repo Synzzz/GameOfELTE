@@ -2,7 +2,7 @@ package com.gameofelte.game;
 
 import java.util.Objects;
 
-public class LuckyCard 
+public abstract class LuckyCard 
 {
     private final String name;
     private final String description;
@@ -72,8 +72,8 @@ public class LuckyCard
         return true;
     }
     // TODO
-    public void effectPlayer(Player player)
-    {
+    public abstract void effectPlayer(Player player);
+    
         
-    }
+    
 }

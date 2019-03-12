@@ -4,6 +4,7 @@ import com.gameofelte.server.services.IGameService;
 import java.util.ArrayList;
 import java.util.List;
 import com.gameofelte.server.services.IClientManagerService;
+import java.util.Random;
 
 public class Game implements IGameService
 {
@@ -23,10 +24,20 @@ public class Game implements IGameService
         for(int i = 0; i < playerCount; i++)
             players.add(new Player(i, this));
     }
-    // TODO
+ 
     private List<Integer> generateRandomNumbers()
     {
-        return null;
+        int sum = 0;
+	Random random = new Random();
+	List<Integer> values = new ArrayList<>();
+		
+        while(sum < fields.size()){
+            int value = sum >= fields.size()-6 ? fields.size() - sum : random.nextInt(6) + 1;
+            sum+=value;
+            values.add(value);
+        }
+
+        return values;
     }
     
     @Override
@@ -39,23 +50,24 @@ public class Game implements IGameService
     public void start()
     {
         clientManager.activatePlayer(0);
+        clientManager.showSubjectRegistrationWindow(activePlayerIndex);
     }
     
     @Override
     public void nextPlayer()
     {
-        if(players.get(0).getFieldIndex() == fields.size() - 1)
+        activePlayerIndex = (activePlayerIndex + 1) % players.size();
+        
+        if(players.get(0).getFieldIndex() == 0)//ha az első játékos következik, és az első mezőn áll => körbeértek a játékosok, új szemeszter
         {
             semester++;
             clientManager.sendRandomNumbersToAll(generateRandomNumbers());
         }
         
-        activePlayerIndex = (activePlayerIndex + 1) % players.size();
-        
         if(activePlayerIndex == 0)
             firstRound = false;
         
-        if(firstRound)
+        if(firstRound)//az első körben mindenki a tárgyfelvétellel kezd
             clientManager.showSubjectRegistrationWindow(activePlayerIndex);
         
         clientManager.activatePlayer(activePlayerIndex);
