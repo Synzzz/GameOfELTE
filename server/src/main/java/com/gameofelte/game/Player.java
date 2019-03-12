@@ -1,6 +1,6 @@
 package com.gameofelte.game;
 
-import com.gameofelte.server.services.IGameService;
+import com.gameofelte.services.IGameService;
 import java.util.ArrayList;
 import java.util.List;
 

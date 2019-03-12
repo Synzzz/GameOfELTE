@@ -1,9 +1,9 @@
 package com.gameofelte.game;
 
-import com.gameofelte.server.services.IGameService;
+import com.gameofelte.services.IGameService;
 import java.util.ArrayList;
 import java.util.List;
-import com.gameofelte.server.services.IClientManagerService;
+import com.gameofelte.services.IClientManagerService;
 import java.util.Random;
 
 public class Game implements IGameService

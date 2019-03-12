@@ -1,4 +1,4 @@
-package com.gameofelte.server.services;
+package com.gameofelte.services;
 
 import com.gameofelte.game.Field;
 import com.gameofelte.game.LuckyCard;
