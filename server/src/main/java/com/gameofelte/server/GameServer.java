@@ -54,8 +54,10 @@ public class GameServer extends Thread implements IClientManagerService
             for(int i = 0; i < clientCount; i++)
             {
                 Socket socket = server.accept();
+                ClientThread thread = new ClientThread(socket, this);
+                thread.start();
                 
-                services.set(i, new ClientThread(socket, this));
+                services.set(i, thread);
                 services.get(i).sendColor(i);
             }
             

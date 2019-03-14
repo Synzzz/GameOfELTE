@@ -14,6 +14,7 @@ public class Program
         {
             Configuration config = new Configuration("server.config");
             Server server = new Server(config);
+            server.listen();
         }
         catch(FileNotFoundException e)
         {

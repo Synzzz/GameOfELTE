@@ -73,7 +73,4 @@ public abstract class LuckyCard
     }
     // TODO
     public abstract void effectPlayer(Player player);
-    
-        
-    
 }
