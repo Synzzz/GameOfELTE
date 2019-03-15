@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameOfELTE.Interfaces
 {
-    interface IGUIService
+    public interface IGUIService
     {
         /// <summary>
         /// Beállítja egy játékos pozícióját a megadott értékre
@@ -37,5 +37,11 @@ namespace GameOfELTE.Interfaces
         /// Megjeleníti a képernyőn a tudás választó ablakot
         /// </summary>
         void ShowKnowledgeChoosingWindow();
+
+        /// <summary>
+        /// Frissíti a pénz kijelzését a képernyőn
+        /// </summary>
+        /// <param name="money"></param>
+        void UpdateMoney(int money);
     }
 }

@@ -1,7 +1,5 @@
 package com.gameofelte.server;
 
-enum ResponseType { OK, ERROR }
-
 public class Response 
 {
     private final ResponseType type;
@@ -22,6 +20,6 @@ public class Response
     @Override
     public String toString() 
     {
-        return "RESPONSE_" + type + ";" + responseMessage;
+        return "RESPONSE;" + type + "|" + responseMessage;
     }
 }

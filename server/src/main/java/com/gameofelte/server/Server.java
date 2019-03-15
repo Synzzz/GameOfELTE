@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Server
 {
@@ -22,14 +23,16 @@ public class Server
     {
         while(true)
         {
-            try
+            try(Socket socket = server.accept())
             {
-                try(Socket socket = server.accept())
+                clientList.add(socket);
+                
+                try(Scanner sc = new Scanner(socket.getInputStream()))
                 {
-                    clientList.add(socket);
-                    
-                    groupSockets();
+                    System.out.println(sc.nextLine());
                 }
+                
+                groupSockets();
             }
             catch(IOException e) { }
         }

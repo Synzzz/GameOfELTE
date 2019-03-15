@@ -11,15 +11,17 @@ namespace GameOfELTE.Game
 
     public class Player
     {
+        public string Name { get; private set; }
+
+        public PlayerColor PlayerColor { get; private set; }
+
+        public int Money { get; set; }
+
         public Player(PlayerColor playerColor, string name)
         {
             PlayerColor = playerColor;
             Name = name;
         }
-
-        public string Name { get; private set; }
-
-        public PlayerColor PlayerColor { get; private set; }
 
         public Color RGBColor
         {

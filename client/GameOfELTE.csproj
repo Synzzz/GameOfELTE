@@ -58,6 +58,12 @@
     </Compile>
     <Compile Include="Interfaces\IGUIService.cs" />
     <Compile Include="Interfaces\IGameService.cs" />
+    <Compile Include="Interfaces\IMessageHandler.cs" />
+    <Compile Include="Interfaces\INetworkManager.cs" />
+    <Compile Include="Network\GameService.cs" />
+    <Compile Include="Network\Message.cs" />
+    <Compile Include="Network\MessageHandler.cs" />
+    <Compile Include="Network\NetworkManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\MainForm.resx">
@@ -85,8 +91,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Network\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

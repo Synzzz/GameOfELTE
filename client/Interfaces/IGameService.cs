@@ -7,12 +7,12 @@ using System.Net;
 
 namespace GameOfELTE.Interfaces
 {
-    interface IGameService
+    public interface IGameService
     {
         /// <summary>
         /// Csatlakozik az endpoint által meghatározott IP-címen és porton egy szerverhez
         /// </summary>
-        void Connect(IPEndPoint endPoint);
+        void Connect(string address, int port);
 
         /// <summary>
         /// Elküd egy szöveges üzenetet a többi játékosnak
@@ -49,5 +49,13 @@ namespace GameOfELTE.Interfaces
         /// Felhúz egy szerencsekártyát
         /// </summary>
         void PickLuckyCard();
+
+        /// <summary>
+        /// Beállítja a randomszámok listáját
+        /// </summary>
+        /// <param name="numbers"></param>
+        void SetRandomNumbers(List<int> numbers);
+
+        void SetMoney(int money);
     }
 }
