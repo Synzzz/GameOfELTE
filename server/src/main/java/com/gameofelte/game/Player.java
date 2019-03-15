@@ -8,10 +8,10 @@ public class Player
 {
     private int fieldIndex = 0;
     private int money;
-    private final List<LuckyCard> luckyCards = new ArrayList<>();
-    private final List<Subject> completedSubjects = new ArrayList<>();
-    private final List<Subject> registeredSubjects = new ArrayList<>();
-    private final List<Subject> learnedSubjects = new ArrayList<>();
+    private final ArrayList<LuckyCard> luckyCards = new ArrayList<>();
+    private final ArrayList<Subject> completedSubjects = new ArrayList<>();
+    private final ArrayList<Subject> registeredSubjects = new ArrayList<>();
+    private final ArrayList<Subject> learnedSubjects = new ArrayList<>();
     private final int playerIndex;
     private final IGameService game;
     
@@ -31,6 +31,16 @@ public class Player
         fieldIndex = index;
     }
     
+    public List<Subject> getRegisteredSubjects() 
+    {
+        return registeredSubjects;
+    }
+    
+    public List<Subject> getLearnedSubjects() 
+    {
+        return learnedSubjects;
+    }
+    
     public void addLuckyCard(LuckyCard card)
     {
         luckyCards.add(card);
@@ -44,56 +54,67 @@ public class Player
     public void earnMoney(int amount)
     {
         money += amount;
-        
         game.setMoney(playerIndex, money);
     }
     
     public void payMoney(int amount)
     {
         money -= amount;
-        
         game.setMoney(playerIndex, money);
     }
     
-    // TODO
-    public void registerSubject(Subject subject)
+    public ArrayList<String> subjectListToStringList(ArrayList<Subject> subjects)
     {
-        
+        ArrayList<String> strings=new ArrayList<>();
+        for(Subject s :subjects)
+        {
+            strings.add(s.getName());
+        }
+        return strings;
+    }
+    
+    public void registerSubject(Subject subject) throws Exception
+    {
+        if(completedSubjects.contains(subject) || !subjectListToStringList(completedSubjects).containsAll(subject.getPrerequisites()))
+        {
+            throw new Exception("Ezt a tárgyat nem veheted fel");
+        }
+        else
+        {
+            registeredSubjects.add(subject);
+        }
     }
 
-    // TODO
+    //csak az Exam-ban hivjuk, learned-eken megy végig ott alapból
     public void completeSubject(Subject subject)
     {
-        
-    }
+        /*
+        if(!learnedSubjects.contains(subject))
+        {
+            throw new Exception("Ezt a tárgyat még nem tanultad meg");
+        }
+        */
+        completedSubjects.add(subject);
+        learnedSubjects.remove(subject);
+        registeredSubjects.remove(subject);
+}
 
-    public List<Subject> getRegisteredSubjects() 
+    public void beginUnregisterSubject() throws Exception
     {
-        return registeredSubjects;
+        if(registeredSubjects.isEmpty())
+        {
+            throw new Exception("Nincs leadható tárgyad");
+        }
     }
-    
-    // TODO
-    public void beginUnregisterSubject(){
-        
-    }
-    
-    // TODO
-    public void beginCourseRequest(){
-        
-        
-    }
-    
-    public List<Subject> getLearnedSubjects() 
-    {
-        return learnedSubjects;
-    }
-    
+   
     public void learnSubject(Subject subject)
     {
         learnedSubjects.add(subject);
     }
     
-    public void removeSubjectByIndex(int num){
+    // exception
+    public void removeSubjectByIndex(int num)
+    {
         registeredSubjects.remove(num);
     }
     
@@ -103,14 +124,24 @@ public class Player
         
     }
     
+    public void beginLearnSubject() throws Exception
+    {
+        if(learnedSubjects.containsAll(registeredSubjects))
+        {
+            throw new Exception("Már minden felvett tárgyat megtanultál");
+        }
+    }
+    
     // TODO
-    public void beginLearnSubject()
+    public void beginWorkOrStudyChoice()
     {
         
     }
-    // TODO
-    public void beginChoiceWorkStudy(){
+     
+    // TODO OR NOT TODO
+    public void beginCourseRequest()throws Exception
+    {
         
-    
     }
+    
 }

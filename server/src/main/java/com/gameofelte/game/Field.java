@@ -11,7 +11,7 @@ public abstract class Field
         this.description = description;
     }
     
-    public abstract void effectPlayer(Player player);
+    public abstract void effectPlayer(Player player) throws Exception;
 
     @Override
     public String toString() 

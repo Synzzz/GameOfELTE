@@ -9,7 +9,8 @@ public class Course extends Field{
     public Course(String name, String description) {
         super(name, description);
     }
-
+    
+    //TODO
     @Override
     public void effectPlayer(Player player) {
         

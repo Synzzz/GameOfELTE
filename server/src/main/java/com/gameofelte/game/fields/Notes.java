@@ -13,7 +13,7 @@ public class Notes extends Field{
     }
 
     @Override
-    public void effectPlayer(Player player) {
+    public void effectPlayer(Player player) throws Exception {
         player.beginLearnSubject();
     }
     

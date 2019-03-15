@@ -82,6 +82,7 @@ public class GameServer extends Thread implements IClientManagerService
             client.sendMessage(msg);
     }
     
+    //TODO targyfelvetel commandok
     private void processMessage(Message msg)
     {
         int senderIndex = getSenderIndex(msg);
