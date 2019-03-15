@@ -12,11 +12,9 @@ public class WorkOrStudy extends Field{
         super(name, description);
     }
 
-
-
     @Override
     public void effectPlayer(Player player) {
-        player.beginChoiceWorkStudy();
+        player.beginWorkOrStudyChoice();
     }
     
 }

@@ -9,7 +9,7 @@ public class StartField extends Field
     {
         super(name, description);
     }
-    
+    //TODO
     @Override
     public void effectPlayer(Player player) 
     {

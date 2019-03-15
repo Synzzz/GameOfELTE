@@ -12,7 +12,7 @@ public class CourseRequest extends Field {
     }
 
     @Override
-    public void effectPlayer(Player player) {
+    public void effectPlayer(Player player) throws Exception {
         player.beginCourseRequest();
     }
     

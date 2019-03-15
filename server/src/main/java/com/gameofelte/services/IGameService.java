@@ -10,7 +10,7 @@ public interface IGameService
     int getActivePlayerIndex();
     void start();
     void nextPlayer();
-    void setPlayerField(int fieldIndex);
+    void setPlayerField(int fieldIndex) throws Exception;
     void pickLuckyCard(int cardIndex) throws Exception;
     void useLuckyCard(int cardIndex) throws Exception;
     List<LuckyCard> getLuckyCards();

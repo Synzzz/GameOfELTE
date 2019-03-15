@@ -1,10 +1,12 @@
 Szerver:
 	-kliens lecsatlakozás kezelése
-	-szerver fájlok
+	-Player
+	-ClientThread / sendResponse
 	-komment TODO-k
 	
 Kliens:
 	-minden
+	-BUILD TOOL
 
 Tesztek:
 	-szerver:
@@ -17,3 +19,4 @@ Tesztek:
 
 Scriptek:
 	-maven beállitása
+	-kliens futtató

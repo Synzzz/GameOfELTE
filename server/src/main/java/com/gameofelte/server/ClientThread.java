@@ -83,6 +83,7 @@ public class ClientThread extends Thread implements IClientService
     public void sendResponse(Response response) 
     {
         printWriter.println(response.toString());
+        // TODO még1 flush?
         printWriter.flush();
     }
 

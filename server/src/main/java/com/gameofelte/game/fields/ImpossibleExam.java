@@ -16,7 +16,7 @@ public class ImpossibleExam extends Field{
     public void effectPlayer(Player player) {
         Random rand = new Random();
         int max = player.getRegisteredSubjects().size();
-        int num = rand.nextInt(max - 1);
+        int num = rand.nextInt(max);
         player.removeSubjectByIndex(num);
     }
     

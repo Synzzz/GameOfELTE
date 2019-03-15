@@ -2,6 +2,9 @@ package com.gameofelte.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,12 +14,13 @@ public class Configuration
     private final Map<String, String> values;
     private final Map<String, String> defaultValues;
     
-    public Configuration(String configFile) throws FileNotFoundException
+    public Configuration(String configFile) throws FileNotFoundException, URISyntaxException
     {
         values = new HashMap<>();
         defaultValues = new HashMap<>();
-        
-        try(Scanner scanner = new Scanner(new File(configFile)))
+        URL res = getClass().getClassLoader().getResource(configFile);
+        File file = Paths.get(res.toURI()).toFile();
+        try(Scanner scanner = new Scanner(file))
         {
             while(scanner.hasNextLine())
             {

@@ -1,9 +1,9 @@
 package com.gameofelte.game;
 
 import com.gameofelte.services.IGameService;
+import com.gameofelte.services.IClientManagerService;
 import java.util.ArrayList;
 import java.util.List;
-import com.gameofelte.services.IClientManagerService;
 import java.util.Random;
 
 public class Game implements IGameService
@@ -80,7 +80,7 @@ public class Game implements IGameService
     }
 
     @Override
-    public void setPlayerField(int fieldIndex) 
+    public void setPlayerField(int fieldIndex) throws Exception 
     {
         Player activePlayer = players.get(activePlayerIndex);
         activePlayer.setFieldIndex(fieldIndex);
