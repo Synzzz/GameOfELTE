@@ -32,7 +32,7 @@ namespace GameOfELTE.Network
 
         public Board GetBoard()
         {
-            Manager.SendMessage("GET_FIELDS");
+            Manager.SendMessage(new Message("GET_FIELDS"));
 
             Message msg = Manager.ReceiveMessage("FIELDS");
 
