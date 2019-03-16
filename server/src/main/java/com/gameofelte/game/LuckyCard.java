@@ -18,7 +18,7 @@ public abstract class LuckyCard
     @Override
     public String toString() 
     {
-        return name + "|" + description;
+        return name + "|" + description + "|" + collectible;
     }
 
     @Override

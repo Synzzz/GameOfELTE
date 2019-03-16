@@ -11,7 +11,7 @@ namespace GameOfELTE.Interfaces
     {
         void Connect(string address, int port);
 
-        void SendMessage(string msg);
+        void SendMessage(Message msg);
 
         Message ReceiveMessage(string command);
 

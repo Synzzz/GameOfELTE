@@ -32,7 +32,7 @@ namespace GameOfELTE.Network
 
         public Board GetBoard()
         {
-            Manager.SendMessage("GET_BOARD");
+            Manager.SendMessage(new Message("GET_BOARD"));
 
             Message msg = Manager.ReceiveMessage("BOARD");
 
@@ -43,7 +43,7 @@ namespace GameOfELTE.Network
 
         public List<LuckyCard> GetLuckyCards()
         {
-            Manager.SendMessage("GET_LUCKY_CARDS");
+            Manager.SendMessage(new Message("GET_LUCKY_CARDS"));
 
             Message msg = Manager.ReceiveMessage("LUCKY_CARDS");
 
@@ -73,7 +73,7 @@ namespace GameOfELTE.Network
 
         public void SendMessage(string msg)
         {
-            throw new NotImplementedException();
+            Manager.SendMessage(new Message("MSG", msg));
         }
 
         public void SendPosition(int field)

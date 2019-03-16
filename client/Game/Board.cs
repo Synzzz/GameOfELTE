@@ -8,16 +8,14 @@ namespace GameOfELTE.Game
 {
     public class Board
     {
-        public Board(int width, int height)
+        public Board(List<Field> fields)
         {
-            //téglalap kerülete 2(a + b) - a sarkok száma, mert azokat duplán számoltuk = összes mező száma
-            Fields = new Field[(width + height) * 2 - 4];
+            Fields = fields.ToArray();
 
-            Width = width;
-            Height = height;
+            //TODO Width, Height-et kiszámolni
         }
 
-        Field[] Fields;
+        private Field[] Fields;
 
         public int Width { get; private set; }
 

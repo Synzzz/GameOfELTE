@@ -48,5 +48,10 @@ namespace GameOfELTE.Interfaces
         /// Aktiválja a GUI-t
         /// </summary>
         void Activate();
+
+        /// <summary>
+        /// Deaktiválja a GUI-t
+        /// </summary>
+        void Deactivate();
     }
 }

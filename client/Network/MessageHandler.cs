@@ -22,6 +22,7 @@ namespace GameOfELTE.Network
             manager.BindCommand("RANDOM_NUMBERS", ReceiveRandomNumbers);
             manager.BindCommand("RESPONSE", ReceiveResponse);
             manager.BindCommand("ACTIVATED", ReceiveActivated);
+            manager.BindCommand("DEACTIVATED", ReceiveDeactivated);
         }
 
         private void ReceiveRandomNumbers(Message msg)
@@ -44,6 +45,11 @@ namespace GameOfELTE.Network
         private void ReceiveActivated(Message msg)
         {
             GUI.Activate();
+        }
+
+        private void ReceiveDeactivated(Message msg)
+        {
+            GUI.Deactivate();
         }
     }
 }

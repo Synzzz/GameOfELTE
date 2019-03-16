@@ -38,8 +38,11 @@ namespace GameOfELTE.Network
                 Client.EndConnect(result);
                 Stream = Client.GetStream();
 
-                ReceiveThread = new Thread(() => ReceiveMessagesFromServer());
-                ReceiveThread.Start();
+                if (ReceiveThread == null)
+                {
+                    ReceiveThread = new Thread(() => ReceiveMessagesFromServer());
+                    ReceiveThread.Start();
+                }
             }
             else
             {
@@ -71,9 +74,9 @@ namespace GameOfELTE.Network
             }
         }
 
-        public void SendMessage(string msg)
+        public void SendMessage(Message msg)
         {
-            byte[] data = Encoding.UTF8.GetBytes(msg + "\n");
+            byte[] data = Encoding.UTF8.GetBytes(msg.ToString());
             Stream.Write(data, 0, data.Length);
             Stream.Flush();
         }

@@ -8,14 +8,11 @@ namespace GameOfELTE.Game
 {
     public class LuckyCard
     {
-        public LuckyCard(int type, string name, string description)
+        public LuckyCard(string name, string description)
         {
-            Type = type;
             Name = name;
             Description = description;
         }
-
-        public int Type { get; private set; }
 
         public string Name { get; private set; }
 
