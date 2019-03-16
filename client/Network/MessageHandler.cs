@@ -21,8 +21,13 @@ namespace GameOfELTE.Network
 
             manager.BindCommand("RANDOM_NUMBERS", ReceiveRandomNumbers);
             manager.BindCommand("RESPONSE", ReceiveResponse);
-            manager.BindCommand("ACTIVATED", ReceiveActivated);
+            manager.BindCommand("ACTIVATE", ReceiveActivated);
+            manager.BindCommand("GAME_OVER", ReceiveScoreBoard);
+            manager.BindCommand("COLOR", ReceivePlayerColor);
+            manager.BindCommand("SHOW_SUBJECT_REGISTRATION_WINDOW", ReceiveSubjectRegistrationWindow);
+            manager.BindCommand("SET_MONEY", ReceivePlayerMoney);
         }
+
 
         private void ReceiveRandomNumbers(Message msg)
         {
@@ -44,6 +49,33 @@ namespace GameOfELTE.Network
         private void ReceiveActivated(Message msg)
         {
             GUI.Activate();
+        }
+
+        private void ReceiveScoreBoard(Message msg)
+        {
+            List<int> scoreboard = new List<int>();
+
+            string[] split = msg.Data.Split(',');
+
+            foreach (string s in split)
+                scoreboard.Add(int.Parse(s));
+
+            GUI.ShowScoreBoard(scoreboard);
+        }
+
+        private void ReceivePlayerColor(Message msg)
+        {
+            Game.SetPlayerColor((GameOfELTE.Game.PlayerColor)int.Parse(msg.Data));
+        }
+
+        private void ReceiveSubjectRegistrationWindow(Message msg)
+        {
+            GUI.ShowSubjectRegistrationWindow();
+        }
+
+        private void ReceivePlayerMoney(Message msg)
+        {
+            Game.SetMoney(int.Parse(msg.Data));
         }
     }
 }

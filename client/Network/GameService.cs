@@ -104,6 +104,11 @@ namespace GameOfELTE.Network
             GUI.UpdateMoney(money);
         }
 
+        public void SetPlayerColor(PlayerColor playerColor)
+        {
+            Player.PlayerColor = playerColor;
+        }
+
         public void SetRandomNumbers(List<int> numbers)
         {
             RandomNumbers = numbers;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using GameOfELTE.Game;
 
 namespace GameOfELTE.Interfaces
 {
@@ -57,5 +58,8 @@ namespace GameOfELTE.Interfaces
         void SetRandomNumbers(List<int> numbers);
 
         void SetMoney(int money);
+
+        //Játékos színének beállítása
+        void SetPlayerColor(PlayerColor playerColor);
     }
 }

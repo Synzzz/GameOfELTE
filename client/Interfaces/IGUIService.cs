@@ -38,6 +38,9 @@ namespace GameOfELTE.Interfaces
         /// </summary>
         void ShowKnowledgeChoosingWindow();
 
+        /// Megjeleníti a kpernyőn az eredménytáblát
+        void ShowScoreBoard(List<int> scoreboard);
+
         /// <summary>
         /// Frissíti a pénz kijelzését a képernyőn
         /// </summary>
