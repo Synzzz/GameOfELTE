@@ -9,14 +9,11 @@ namespace GameOfELTE.Game
 {
     public class Field
     {
-        public Field(int type, string name, string description)
+        public Field(string name, string description)
         {
-            Type = type;
             Name = name;
             Description = description;
         }
-
-        public int Type { get; private set; }
 
         public string Name { get; private set; }
 

@@ -3,11 +3,13 @@ package com.gameofelte.game;
 import com.gameofelte.services.IGameService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Player 
 {
     private int fieldIndex = 0;
     private int money;
+    private boolean stateFund;
     private final ArrayList<LuckyCard> luckyCards = new ArrayList<>();
     private final ArrayList<Subject> completedSubjects = new ArrayList<>();
     private final ArrayList<Subject> registeredSubjects = new ArrayList<>();
@@ -19,6 +21,7 @@ public class Player
     {
         this.playerIndex = playerIndex;
         this.game = game;
+        this.stateFund = true;
     }
     
     public int getFieldIndex()
@@ -118,6 +121,13 @@ public class Player
         registeredSubjects.remove(num);
     }
     
+    public void removeRandomSubject(){
+       Random rand = new Random();
+       int max = getRegisteredSubjects().size();
+       int num = rand.nextInt(max);
+       removeSubjectByIndex(num);
+    }
+    
     // TODO
     public void pickingLuckyCard() throws Exception
     {
@@ -141,6 +151,30 @@ public class Player
     // TODO OR NOT TODO
     public void beginCourseRequest()throws Exception
     {
+        
+    }
+    
+    public void changeStateFundStatus(boolean b){
+        this.stateFund = b;
+    }
+    
+    // TODO
+    public void beginLosingKnowledge(){
+        
+    }
+    
+    // TODO
+    public void beginCompleteSubject(){
+        
+    }
+    
+    // TODO - mateking szerencsekártya
+    public void beginMatekingChoice(){
+        
+    }
+    
+    // TODO - túlóra szerencsekártya
+    public void beginOvertimeWork(){
         
     }
     
