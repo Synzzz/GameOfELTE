@@ -14,10 +14,7 @@ public class Ousted extends Field {
 
     @Override
     public void effectPlayer(Player player) {
-        Random rand = new Random();
-        int max = player.getRegisteredSubjects().size();
-        int num = rand.nextInt(max);
-        player.removeSubjectByIndex(num);
+        player.removeRandomSubject();
     }
     
 }

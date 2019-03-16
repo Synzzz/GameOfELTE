@@ -18,7 +18,7 @@ public abstract class LuckyCard
     @Override
     public String toString() 
     {
-        return name + "|" + description;
+        return name + "|" + description + "|" + collectible;
     }
 
     @Override
@@ -71,6 +71,5 @@ public abstract class LuckyCard
         
         return true;
     }
-    // TODO
-    public abstract void effectPlayer(Player player);
+    public abstract void effectPlayer(Player player) throws Exception ;
 }

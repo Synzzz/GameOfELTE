@@ -90,7 +90,7 @@ public class ClientThread extends Thread implements IClientService
     @Override
     public void sendLuckyCards(List<LuckyCard> luckyCards) 
     {
-        printWriter.print("LUCK_CARDS;");
+        printWriter.print("LUCKY_CARDS;");
         
         for(int i = 0; i < luckyCards.size(); i++)
         {
@@ -109,12 +109,12 @@ public class ClientThread extends Thread implements IClientService
     @Override
     public void sendBoard(List<Field> fields) 
     {
-         printWriter.print("FIELDS;");
+        printWriter.print("FIELDS;");
         
         for(int i = 0; i < fields.size(); i++)
         {
-            Field card = fields.get(i);
-            printWriter.print(card.toString());
+            Field field = fields.get(i);
+            printWriter.print(field.toString());
             
             if(i < fields.size() - 1)
                 printWriter.print(",");

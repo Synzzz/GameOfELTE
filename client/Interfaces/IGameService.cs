@@ -57,6 +57,10 @@ namespace GameOfELTE.Interfaces
         /// <param name="numbers"></param>
         void SetRandomNumbers(List<int> numbers);
 
+        /// <summary>
+        /// Beállíta a játékos pénzét
+        /// </summary>
+        /// <param name="money"></param>
         void SetMoney(int money);
 
         //Játékos színének beállítása

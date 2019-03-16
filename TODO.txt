@@ -3,6 +3,7 @@ Szerver:
 	-Player
 	-ClientThread / sendResponse
 	-komment TODO-k
+	-kártya,field konstruktorok 
 	
 Kliens:
 	-minden

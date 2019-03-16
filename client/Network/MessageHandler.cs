@@ -21,7 +21,7 @@ namespace GameOfELTE.Network
 
             manager.BindCommand("RANDOM_NUMBERS", ReceiveRandomNumbers);
             manager.BindCommand("RESPONSE", ReceiveResponse);
-            manager.BindCommand("ACTIVATE", ReceiveActivated);
+            manager.BindCommand("ACTIVATED", ReceiveActivated);
             manager.BindCommand("GAME_OVER", ReceiveScoreBoard);
             manager.BindCommand("COLOR", ReceivePlayerColor);
             manager.BindCommand("SHOW_SUBJECT_REGISTRATION_WINDOW", ReceiveSubjectRegistrationWindow);

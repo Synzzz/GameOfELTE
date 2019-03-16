@@ -50,12 +50,15 @@
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\LuckyCard.cs" />
     <Compile Include="Game\Player.cs" />
+    <Compile Include="GUI\GUI.cs" />
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Renderer.cs" />
+    <Compile Include="GUI\RenderFrame.cs" />
     <Compile Include="Interfaces\IGUIService.cs" />
     <Compile Include="Interfaces\IGameService.cs" />
     <Compile Include="Interfaces\IMessageHandler.cs" />
