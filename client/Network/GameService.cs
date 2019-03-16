@@ -32,13 +32,21 @@ namespace GameOfELTE.Network
 
         public Board GetBoard()
         {
-            Manager.SendMessage("GET_BOARD");
+            Manager.SendMessage("GET_FIELDS");
 
-            Message msg = Manager.ReceiveMessage("BOARD");
+            Message msg = Manager.ReceiveMessage("FIELDS");
 
-            //TODO létrehozni a boardot az msg.Data-ból és visszaadni
+            List<Field> fields = new List<Field>();
+            string[] split = msg.Data.Split(',');
 
-            return null;
+            foreach (string s in split)
+            {
+                string[] tmp = s.Split('|');
+
+                fields.Add(new Field(tmp[0], tmp[1]));
+            }
+
+            return new Board(fields);
         }
 
         public List<LuckyCard> GetLuckyCards()
@@ -47,9 +55,17 @@ namespace GameOfELTE.Network
 
             Message msg = Manager.ReceiveMessage("LUCKY_CARDS");
 
-            //TODO létrehozni a listát az msg.Data-ból és visszaadni
+            List<LuckyCard> luckyCards = new List<LuckyCard>();
+            string[] split = msg.Data.Split(',');
 
-            return null;
+            foreach (string s in split)
+            {
+                string[] tmp = s.Split('|');
+
+                luckyCards.Add(new LuckyCard(tmp[0], tmp[1], Boolean.Parse(tmp[2])));
+            }
+
+            return luckyCards;
         }
 
         public int GetRandomNumber()
