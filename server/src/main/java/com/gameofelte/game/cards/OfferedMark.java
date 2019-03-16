@@ -1,19 +1,19 @@
 
-package com.gameofelte.cards;
+package com.gameofelte.game.cards;
 
 import com.gameofelte.game.LuckyCard;
 import com.gameofelte.game.Player;
 
 
-public class Scholarship extends LuckyCard{
+public class OfferedMark extends LuckyCard{
 
-    public Scholarship(String name, String description, boolean collectible) {
+    public OfferedMark(String name, String description, boolean collectible) {
         super(name, description, collectible);
     }
 
     @Override
     public void effectPlayer(Player player) {
-        player.earnMoney(150000);
+        player.beginCompleteSubject();
     }
     
 }

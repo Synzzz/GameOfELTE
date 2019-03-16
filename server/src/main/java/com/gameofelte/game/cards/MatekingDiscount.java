@@ -1,5 +1,5 @@
 
-package com.gameofelte.cards;
+package com.gameofelte.game.cards;
 
 import com.gameofelte.game.LuckyCard;
 import com.gameofelte.game.Player;

@@ -1,19 +1,19 @@
 
-package com.gameofelte.cards;
+package com.gameofelte.game.cards;
 
 import com.gameofelte.game.LuckyCard;
 import com.gameofelte.game.Player;
 
 
-public class NewComputergame extends LuckyCard{
+public class ComputerBreakDown extends LuckyCard{
 
-    public NewComputergame(String name, String description, boolean collectible) {
+    public ComputerBreakDown(String name, String description, boolean collectible) {
         super(name, description, collectible);
     }
 
     @Override
     public void effectPlayer(Player player) {
-        player.beginLosingKnowledge();
+        player.payMoney(100000);
     }
     
 }
