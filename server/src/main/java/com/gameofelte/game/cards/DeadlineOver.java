@@ -1,10 +1,9 @@
 
-package com.gameofelte.cards;
+package com.gameofelte.game.cards;
 
 import com.gameofelte.game.LuckyCard;
 import com.gameofelte.game.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class DeadlineOver extends LuckyCard{
@@ -14,12 +13,8 @@ public class DeadlineOver extends LuckyCard{
     }
 
     @Override
-    public void effectPlayer(Player player) {
-        try {
+    public void effectPlayer(Player player) throws Exception {
             player.beginUnregisterSubject();
-        } catch (Exception ex) {
-            Logger.getLogger(DeadlineOver.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
 }

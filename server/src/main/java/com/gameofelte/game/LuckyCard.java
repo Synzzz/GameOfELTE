@@ -71,6 +71,5 @@ public abstract class LuckyCard
         
         return true;
     }
-    // TODO
-    public abstract void effectPlayer(Player player);
+    public abstract void effectPlayer(Player player) throws Exception ;
 }
