@@ -43,5 +43,10 @@ namespace GameOfELTE.Interfaces
         /// </summary>
         /// <param name="money"></param>
         void UpdateMoney(int money);
+
+        /// <summary>
+        /// Aktiválja a GUI-t
+        /// </summary>
+        void Activate();
     }
 }

@@ -43,7 +43,7 @@ namespace GameOfELTE.Network
 
         private void ReceiveActivated(Message msg)
         {
-            //TODO
+            GUI.Activate();
         }
     }
 }
