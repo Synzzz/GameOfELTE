@@ -13,7 +13,7 @@ public class OfferedMark extends LuckyCard{
 
     @Override
     public void effectPlayer(Player player) {
-        player.beginCompleteSubject();
+        player.beginOfferedMark();
     }
     
 }

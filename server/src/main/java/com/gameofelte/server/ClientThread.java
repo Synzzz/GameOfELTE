@@ -59,7 +59,6 @@ public class ClientThread extends Thread implements IClientService
         }
         
         printWriter.println();
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -102,7 +101,6 @@ public class ClientThread extends Thread implements IClientService
         }
         
         printWriter.println();
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -121,7 +119,6 @@ public class ClientThread extends Thread implements IClientService
         }
         
         printWriter.println();
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -139,7 +136,6 @@ public class ClientThread extends Thread implements IClientService
         }
         
         printWriter.println();
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -147,7 +143,6 @@ public class ClientThread extends Thread implements IClientService
     public void sendColor(int color) 
     {
         printWriter.println("COLOR;" + color);
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -155,7 +150,6 @@ public class ClientThread extends Thread implements IClientService
     public void showSubjectRegistrationWindow() 
     {
         printWriter.println("SHOW_SUBJECT_REGISTRATION_WINDOW");
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -163,7 +157,6 @@ public class ClientThread extends Thread implements IClientService
     public void activate() 
     {
         printWriter.println("ACTIVATE");
-        printWriter.println();
         printWriter.flush();
     }
 
@@ -186,7 +179,54 @@ public class ClientThread extends Thread implements IClientService
     public void setMoney(int amount) 
     {
         printWriter.println("SET_MONEY;" + amount);
-        printWriter.println();
+        printWriter.flush();
+    }
+    
+    @Override
+    public void beginLearnSubject() {
+        printWriter.println("LEARN_SUBJECT");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginWorkOrStudyChoice() {
+        printWriter.println("WORK_OR_STUDY");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginCourseRequest() {
+        printWriter.println("COURSE_REQUEST");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginLosingKnowledge() {
+        printWriter.println("LOSING_KNOWLEDGE");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginOfferedMark() {
+        printWriter.println("OFFERED_MARK");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginMatekingChoice() {
+        printWriter.println("MATEKING_CHOICE");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginOvertimeWork() {
+        printWriter.println("OVERTIME_WORK");
+        printWriter.flush();
+    }
+
+    @Override
+    public void beginUnregisterSubject() {
+        printWriter.println("UNREGISTER_SUBJECT");
         printWriter.flush();
     }
 }

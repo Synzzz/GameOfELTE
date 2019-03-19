@@ -128,4 +128,45 @@ public class Game implements IGameService
     {
         clientManager.setMoney(playerIndex, money);
     }
+    
+    @Override
+    public void beginLearnSubject(int playerIndex) {
+        clientManager.beginLearnSubject(playerIndex);
+    }
+
+    @Override
+    public void beginWorkOrStudyChoice(int playerIndex) {
+        clientManager.beginWorkOrStudyChoice(playerIndex);
+    }
+
+    @Override
+    public void beginCourseRequest(int playerIndex) {
+        clientManager.beginCourseRequest(playerIndex);
+    }
+
+
+    @Override
+    public void beginLosingKnowledge(int playerIndex) {
+        clientManager.beginLosingKnowledge(playerIndex);
+    }
+
+    @Override
+    public void beginOfferedMark(int playerIndex) {
+        clientManager.beginOfferedMark(playerIndex);
+    }
+
+    @Override
+    public void beginMatekingChoice(int playerIndex) {
+        clientManager.beginMatekingChoice(playerIndex);
+    }
+
+    @Override
+    public void beginOvertimeWork(int playerIndex) {
+        clientManager.beginOvertimeWork(playerIndex);
+    }
+
+    @Override
+    public void beginUnregisterSubject(int playerIndex) {
+        clientManager.beginUnregisterSubject(playerIndex);
+    }
 }

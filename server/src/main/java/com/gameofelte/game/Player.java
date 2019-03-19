@@ -134,24 +134,31 @@ public class Player
         
     }
     
+    
+    //TODO
     public void beginLearnSubject() throws Exception
     {
+        
         if(learnedSubjects.containsAll(registeredSubjects))
         {
             throw new Exception("Már minden felvett tárgyat megtanultál");
+        }
+        else
+        {
+            game.beginLearnSubject(playerIndex);
         }
     }
     
     // TODO
     public void beginWorkOrStudyChoice()
     {
-        
+        game.beginWorkOrStudyChoice(playerIndex);
     }
      
     // TODO OR NOT TODO
     public void beginCourseRequest()throws Exception
     {
-        
+        game.beginCourseRequest(playerIndex);
     }
     
     public void changeStateFundStatus(boolean b){
@@ -160,22 +167,22 @@ public class Player
     
     // TODO
     public void beginLosingKnowledge(){
-        
+        game.beginLosingKnowledge(playerIndex);
     }
     
     // TODO
-    public void beginCompleteSubject(){
-        
+    public void beginOfferedMark(){
+        game.beginOfferedMark(playerIndex);
     }
     
     // TODO - mateking szerencsekártya
     public void beginMatekingChoice(){
-        
+        game.beginMatekingChoice(playerIndex);
     }
     
     // TODO - túlóra szerencsekártya
     public void beginOvertimeWork(){
-        
+        game.beginOvertimeWork(playerIndex);
     }
     
 }

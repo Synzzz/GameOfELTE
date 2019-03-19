@@ -159,4 +159,44 @@ public class GameServer extends Thread implements IClientManagerService
     {
         clients.get(playerIndex).setMoney(money);
     }
+    
+        @Override
+    public void beginLearnSubject(int playerIndex) {
+        clients.get(playerIndex).beginLearnSubject();
+    }
+
+    @Override
+    public void beginWorkOrStudyChoice(int playerIndex) {
+        clients.get(playerIndex).beginWorkOrStudyChoice();
+    }
+
+    @Override
+    public void beginCourseRequest(int playerIndex) {
+        clients.get(playerIndex).beginCourseRequest();
+    }
+
+    @Override
+    public void beginLosingKnowledge(int playerIndex) {
+       clients.get(playerIndex).beginLosingKnowledge();
+    }
+
+    @Override
+    public void beginOfferedMark(int playerIndex) {
+        clients.get(playerIndex).beginOfferedMark();
+    }
+
+    @Override
+    public void beginMatekingChoice(int playerIndex) {
+        clients.get(playerIndex).beginMatekingChoice();
+    }
+
+    @Override
+    public void beginOvertimeWork(int playerIndex) {
+        clients.get(playerIndex).beginOvertimeWork();
+    }
+
+    @Override
+    public void beginUnregisterSubject(int playerIndex) {
+       clients.get(playerIndex).beginUnregisterSubject();
+    }
 }

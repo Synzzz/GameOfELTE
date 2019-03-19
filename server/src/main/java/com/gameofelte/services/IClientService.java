@@ -17,6 +17,14 @@ public interface IClientService
     void sendBoard(List<Field> fields);
     void sendGameOver(List<Integer> scoreboard);
     void setMoney(int amount);
+    void beginLearnSubject();
+    void beginWorkOrStudyChoice();
+    void beginCourseRequest();
+    void beginLosingKnowledge();
+    void beginOfferedMark();
+    void beginMatekingChoice();
+    void beginOvertimeWork();
+    void beginUnregisterSubject();
     Socket getSocket();
     void showSubjectRegistrationWindow();
     void activate();
