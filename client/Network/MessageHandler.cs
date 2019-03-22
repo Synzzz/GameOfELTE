@@ -26,8 +26,15 @@ namespace GameOfELTE.Network
             manager.BindCommand("COLOR", ReceivePlayerColor);
             manager.BindCommand("SHOW_SUBJECT_REGISTRATION_WINDOW", ReceiveSubjectRegistrationWindow);
             manager.BindCommand("SET_MONEY", ReceivePlayerMoney);
+            manager.BindCommand("LEARN_SUBJECT", ReceiveLearnSubject);
+            manager.BindCommand("WORK_OR_STUDY", ReceiveWorkOrStudy);
+            manager.BindCommand("COURSE_REQUEST", ReceiveCourseRequest);
+            manager.BindCommand("LOSING_KNOWLEDGE", ReceiveLosingKnowledge);
+            manager.BindCommand("OFFERED_MARK", ReceiveOfferedMark);
+            manager.BindCommand("MATEKING_CHOICE", ReceiveMatekingChoice);
+            manager.BindCommand("OVERTIME_WORK", ReceiveOvertimeWork);
+            manager.BindCommand("UNREGISTER_SUBJECT", ReceiveUnregisterSubject); 
         }
-
 
         private void ReceiveRandomNumbers(Message msg)
         {
@@ -71,6 +78,46 @@ namespace GameOfELTE.Network
         private void ReceiveSubjectRegistrationWindow(Message msg)
         {
             GUI.ShowSubjectRegistrationWindow();
+        }
+
+        private void ReceiveLearnSubject(Message msg)
+        {
+            GUI.ShowLearnSubject();
+        }
+
+        private void ReceiveWorkOrStudy(Message msg)
+        {
+            GUI.ShowWorkOrStudy();
+        }
+
+        private void ReceiveCourseRequest(Message msg)
+        {
+            GUI.ShowCourseRequest();
+        }
+
+        private void ReceiveLosingKnowledge(Message msg)
+        {
+            GUI.ShowLosingKnowledge();
+        }
+
+        private void ReceiveOfferedMark(Message msg)
+        {
+            GUI.ShowOfferedMark();
+        }
+
+        private void ReceiveMatekingChoice(Message msg)
+        {
+            GUI.ShowMatekingChoice();
+        }
+
+        private void ReceiveOvertimeWork(Message msg)
+        {
+            GUI.ShowOvertimeWork();
+        }
+
+        private void ReceiveUnregisterSubject(Message msg)
+        {
+            GUI.ShowUnregisterSubject();
         }
 
         private void ReceivePlayerMoney(Message msg)

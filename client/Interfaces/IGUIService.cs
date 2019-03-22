@@ -41,6 +41,27 @@ namespace GameOfELTE.Interfaces
         /// Megjeleníti a kpernyőn az eredménytáblát
         void ShowScoreBoard(List<int> scoreboard);
 
+        //Egy tárgy elvesztésének megjelenítése
+        void ShowUnregisterSubject();
+
+        //Túlóra megjelenítése a képernyőn
+        void ShowOvertimeWork();
+
+        //Megjeleníti a Mateking választási lehetőségét a képernyőn
+        void ShowMatekingChoice();
+
+        //Munka vagy tanulás választó megjelenítése 
+        void ShowWorkOrStudy();
+
+        //Megajánlott jegy megjelenítése
+        void ShowOfferedMark();
+
+        //Elvesztett tudás megjelenítése
+        void ShowLosingKnowledge();
+
+        //Tárgyfelvételi kérvény megjelenítése
+        void ShowCourseRequest();
+
         /// <summary>
         /// Frissíti a pénz kijelzését a képernyőn
         /// </summary>
@@ -51,6 +72,7 @@ namespace GameOfELTE.Interfaces
         /// Aktiválja a GUI-t
         /// </summary>
         void Activate();
+        void ShowLearnSubject();
 
         /// <summary>
         /// Deaktiválja a GUI-t
