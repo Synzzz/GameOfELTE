@@ -67,7 +67,7 @@ namespace GameOfELTE.Network
             foreach (string s in split)
                 scoreboard.Add(int.Parse(s));
 
-            GUI.ShowScoreBoard(scoreboard);
+            GUI.ShowScoreBoardWindow(scoreboard);
         }
 
         private void ReceivePlayerColor(Message msg)
@@ -82,42 +82,42 @@ namespace GameOfELTE.Network
 
         private void ReceiveLearnSubject(Message msg)
         {
-            GUI.ShowLearnSubject();
+            GUI.ShowLearnSubjectWindow();
         }
 
         private void ReceiveWorkOrStudy(Message msg)
         {
-            GUI.ShowWorkOrStudy();
+            GUI.ShowWorkOrStudyWindow();
         }
 
         private void ReceiveCourseRequest(Message msg)
         {
-            GUI.ShowCourseRequest();
+            GUI.ShowCourseRequestWindow();
         }
 
         private void ReceiveLosingKnowledge(Message msg)
         {
-            GUI.ShowLosingKnowledge();
+            GUI.ShowLosingKnowledgeWindow();
         }
 
         private void ReceiveOfferedMark(Message msg)
         {
-            GUI.ShowOfferedMark();
+            GUI.ShowOfferedMarkWindow();
         }
 
         private void ReceiveMatekingChoice(Message msg)
         {
-            GUI.ShowMatekingChoice();
+            GUI.ShowMatekingChoiceWindow();
         }
 
         private void ReceiveOvertimeWork(Message msg)
         {
-            GUI.ShowOvertimeWork();
+            GUI.ShowOvertimeWorkWindow();
         }
 
         private void ReceiveUnregisterSubject(Message msg)
         {
-            GUI.ShowUnregisterSubject();
+            GUI.ShowUnregisterSubjectWindow();
         }
 
         private void ReceivePlayerMoney(Message msg)
