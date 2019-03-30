@@ -19,6 +19,10 @@ public class Configuration
         values = new HashMap<>();
         defaultValues = new HashMap<>();
         URL res = getClass().getClassLoader().getResource(configFile);
+        if(res==null)
+        {
+            throw new FileNotFoundException();
+        }
         File file = Paths.get(res.toURI()).toFile();
         try(Scanner scanner = new Scanner(file))
         {

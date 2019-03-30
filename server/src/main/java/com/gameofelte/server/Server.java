@@ -12,11 +12,13 @@ public class Server
 {
     private final ServerSocket server;
     private final List<Socket> clientList;
+    private final int playerCount;
     
     public Server(Configuration configuration) throws IOException
     {
         server = new ServerSocket(Integer.parseInt(configuration.get("port")));
         clientList = new ArrayList<>();
+        playerCount=Integer.parseInt(configuration.get("players"));
     }
     
     public void listen()
@@ -40,7 +42,7 @@ public class Server
     
     private void groupSockets()
     {
-        if(clientList.size() == 6)
+        if(clientList.size() == playerCount)
         {
             boolean l = true;
             for(int i = 0; i < clientList.size(); i++)
@@ -55,9 +57,11 @@ public class Server
             }
             
             if(l)
-            {
+            { 
                 //TODO játék szerver indítása
             }
         }
     }
+    
+    
 }
