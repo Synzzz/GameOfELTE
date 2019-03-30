@@ -6,14 +6,17 @@ import com.gameofelte.game.Player;
 import java.util.Random;
 
 
-public class Cheating extends LuckyCard{
+public class Cheating extends LuckyCard
+{
 
-    public Cheating(String name, String description, boolean collectible) {
+    public Cheating(String name, String description, boolean collectible) 
+    {
         super(name, description, collectible);
     }
 
     @Override
-    public void effectPlayer(Player player) {
+    public void effectPlayer(Player player) throws Exception 
+    {
        player.removeRandomSubject();
     }
     

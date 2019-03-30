@@ -6,14 +6,17 @@ import com.gameofelte.game.Player;
 
 
 
-public class Knowledge extends LuckyCard{
+public class Knowledge extends LuckyCard
+{
 
-    public Knowledge(String name, String description, boolean collectible) {
+    public Knowledge(String name, String description, boolean collectible) 
+    {
         super(name, description, collectible);
     }
 
     @Override
-    public void effectPlayer(Player player) throws Exception  {
+    public void effectPlayer(Player player) throws Exception 
+    {
             player.beginLearnSubject();
     }
     

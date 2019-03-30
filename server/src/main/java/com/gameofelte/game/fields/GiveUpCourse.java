@@ -3,17 +3,19 @@ package com.gameofelte.game.fields;
 
 import com.gameofelte.game.Field;
 import com.gameofelte.game.Player;
-import com.gameofelte.game.Subject;
 
 
-public class GiveUpCourse extends Field{
+public class GiveUpCourse extends Field
+{
 
-    public GiveUpCourse(String name, String description) {
+    public GiveUpCourse(String name, String description) 
+    {
         super(name, description);
     }
 
     @Override
-    public void effectPlayer(Player player) throws Exception{
+    public void effectPlayer(Player player) throws Exception
+    {
         player.beginUnregisterSubject();
     }
     

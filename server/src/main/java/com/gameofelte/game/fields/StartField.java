@@ -11,7 +11,7 @@ public class StartField extends Field
     }
     //TODO
     @Override
-    public void effectPlayer(Player player) 
+    public void effectPlayer(Player player) throws Exception
     {
         
     }

@@ -6,14 +6,17 @@ import com.gameofelte.game.Player;
 
 
 
-public class DeadlineOver extends LuckyCard{
+public class DeadlineOver extends LuckyCard
+{
 
-    public DeadlineOver(String name, String description, boolean collectible) {
+    public DeadlineOver(String name, String description, boolean collectible) 
+    {
         super(name, description, collectible);
     }
 
     @Override
-    public void effectPlayer(Player player) throws Exception {
+    public void effectPlayer(Player player) throws Exception 
+    {
             player.beginUnregisterSubject();
     }
     

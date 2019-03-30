@@ -5,14 +5,17 @@ import com.gameofelte.game.Field;
 import com.gameofelte.game.Player;
 
 
-public class Entertainment extends Field{
+public class Entertainment extends Field
+{
 
-    public Entertainment(String name, String description) {
+    public Entertainment(String name, String description) 
+    {
         super(name, description);
     }
 
     @Override
-    public void effectPlayer(Player player) {
+    public void effectPlayer(Player player) throws Exception
+    {
         int money = 10000;
         player.payMoney(money);
     }
