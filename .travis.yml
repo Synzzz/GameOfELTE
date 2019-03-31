@@ -1,8 +1,6 @@
 matrix:
   include:
     - language: java
-      before_install:
-    - chmod +x scripts/serverStart.bat
       before_script:
         - cd scripts
       script:
@@ -11,8 +9,6 @@ matrix:
         - cd ..
 
     - language: csharp
-      before_install:
-        - chmod +x scripts/clientBuild.sh
       before_script:
         - cd scripts
       script:
