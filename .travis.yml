@@ -1,0 +1,17 @@
+matrix:
+  include:
+    - language: java
+      before_script:
+        - cd scripts
+      script:
+        - serverStart.bat
+      after_script:
+        - cd ..
+
+    - language: csharp
+      before_script:
+        - cd scripts
+      script:
+        - clientBuild.sh
+      after_script:
+        - cd ..
