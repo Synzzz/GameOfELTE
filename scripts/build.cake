@@ -6,4 +6,3 @@ Task("Default")
   MSBuild("../client/GameOfELTE.sln");
 });
 
-RunTarget(target);
