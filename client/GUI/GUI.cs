@@ -30,7 +30,22 @@ namespace GameOfELTE.GUI
             throw new NotImplementedException();
         }
 
+        public void ShowCourseRequestWindow()
+        {
+            throw new NotImplementedException();
+        }
+
         public void ShowKnowledgeChoosingWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowLearnSubjectWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowLosingKnowledgeWindow()
         {
             throw new NotImplementedException();
         }
@@ -40,7 +55,37 @@ namespace GameOfELTE.GUI
             throw new NotImplementedException();
         }
 
+        public void ShowMatekingChoiceWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowOfferedMarkWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowOvertimeWorkWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowScoreBoardWindow(List<int> scoreboard)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ShowSubjectRegistrationWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowUnregisterSubjectWindow()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowWorkOrStudyWindow()
         {
             throw new NotImplementedException();
         }
