@@ -4,7 +4,7 @@ matrix:
       before_script:
         - cd scripts
       script:
-        - serverStart.bat
+        - ./serverStart.bat
       after_script:
         - cd ..
 
@@ -12,6 +12,6 @@ matrix:
       before_script:
         - cd scripts
       script:
-        - clientBuild.sh
+        - ./clientBuild.sh
       after_script:
         - cd ..
