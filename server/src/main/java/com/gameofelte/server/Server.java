@@ -4,6 +4,7 @@ import com.gameofelte.util.Configuration;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +20,7 @@ public class Server
         server = new ServerSocket(Integer.parseInt(configuration.get("port")));
         clientList = new ArrayList<>();
         playerCount=Integer.parseInt(configuration.get("players"));
+        server.setSoTimeout(300000);
     }
     
     public void listen()
@@ -28,7 +30,6 @@ public class Server
             try(Socket socket = server.accept())
             {
                 clientList.add(socket);
-                
                 try(Scanner sc = new Scanner(socket.getInputStream()))
                 {
                     System.out.println(sc.nextLine());
@@ -36,7 +37,14 @@ public class Server
                 
                 groupSockets();
             }
-            catch(IOException e) { }
+            catch(SocketTimeoutException e) 
+            {
+                if(clientList.size() == 0)
+                {
+                    break;
+                }
+            }
+            catch(IOException e){}
         }
     }
     
