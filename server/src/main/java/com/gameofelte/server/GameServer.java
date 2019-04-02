@@ -1,7 +1,10 @@
 package com.gameofelte.server;
 
+import com.gameofelte.game.Game;
 import com.gameofelte.services.IClientService;
 import com.gameofelte.services.IGameService;
+import com.gameofelte.services.IClientManagerService;
+import com.gameofelte.util.Configuration;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -9,31 +12,81 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.gameofelte.services.IClientManagerService;
+import java.net.SocketTimeoutException;
+import java.util.Scanner;
 
 public class GameServer extends Thread implements IClientManagerService
 {
-    private final int port;
-    private final int clientCount;
+    private final ServerSocket server;
+    private final List<Socket> clientList;
+    private final int playerCount;
     private final Queue<Message> messageQueue;
     private final IGameService game;
     private List<IClientService> clients;
     
-    public GameServer(int port, int clientCount, IGameService game) throws IOException
+    public GameServer(Configuration config) throws IOException
     {
-        this.port = port;
         messageQueue = new LinkedBlockingQueue<>();
-        this.clientCount = clientCount;
-        this.game = game;
+        
+        server = new ServerSocket(Integer.parseInt(config.get("port")));
+        clientList = new ArrayList<>();
+        playerCount = Integer.parseInt(config.get("players"));
+        server.setSoTimeout(300000);
+        game = new Game(this,playerCount);
     }
     
+  
     @Override
     public void run()
     {
+        while(true)
+        {
+            try(Socket socket = server.accept())
+            {
+                clientList.add(socket);
+                try(Scanner sc = new Scanner(socket.getInputStream()))
+                {
+                    System.out.println(sc.nextLine());
+                }
+                
+                groupSockets();
+            }
+            catch(SocketTimeoutException e) 
+            {
+                if(clientList.size() == 0)
+                {
+                    break;
+                }
+            }
+            catch(IOException e){}
+        }
+    }
+    
+    private void groupSockets()
+    {
+        if(clientList.size() == playerCount)
+        {
+            boolean start = true;
+            for(int i = 0; i < clientList.size(); i++)
+            {
+                if(clientList.get(i).isClosed())
+                {
+                    start = false;
+                    clientList.remove(i);
+                    i--;
+                }
+            }
+            if(start)
+            { 
+                //TODO játék szerver indítása
+                startGame();
+            }
+        }
+    }
+    
+    private void startGame()
+    {
         clients = connectClients();
-        
         game.start();
         
         while(!game.isOver())
@@ -43,32 +96,24 @@ public class GameServer extends Thread implements IClientManagerService
         
         for(IClientService client : clients)
             client.close();
+
     }
     
     private List<IClientService> connectClients()
     {
-        try(ServerSocket server = new ServerSocket(port))
+        List<IClientService> services = new ArrayList<>();
+        int i = 0;
+        for (Socket s : clientList)
         {
-            List<IClientService> services = new ArrayList<>(clientCount);
-            
-            for(int i = 0; i < clientCount; i++)
-            {
-                Socket socket = server.accept();
-                ClientThread thread = new ClientThread(socket, this);
+            try {
+                ClientThread thread = new ClientThread(s, this);
                 thread.start();
-                
                 services.set(i, thread);
                 services.get(i).sendColor(i);
-            }
-            
-            return services;
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(GameServer.class.getName()).log(Level.SEVERE, null, ex);
+                i++;
+            } catch (IOException ex) {}
         }
-        
-        return null;
+        return services;
     }
     
     public void addMessage(Message msg)

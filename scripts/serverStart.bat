@@ -1,3 +1,4 @@
 cd ../server
-mvn test
-mvn package
+mvn clean install
+mvn exec:java -Dexec.mainClass=com.gameofelte.server.Program
+pause

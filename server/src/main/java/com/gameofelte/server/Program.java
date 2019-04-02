@@ -14,8 +14,9 @@ public class Program
         try
         {
             Configuration config = new Configuration("server.config");
-            Server server = new Server(config);
-            server.listen();
+            GameServer server = new GameServer(config);
+            server.start();
+            server.join();
         }
         catch(FileNotFoundException e)
         {
@@ -27,6 +28,10 @@ public class Program
             Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
         } 
         catch (URISyntaxException ex) 
+        {
+            Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (InterruptedException ex) 
         {
             Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, ex);
         }
