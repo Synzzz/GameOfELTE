@@ -14,7 +14,7 @@ public class Program
         try
         {
             Configuration config = new Configuration("server.config");
-            GameServer server = new GameServer(config);
+            GameServer server = new GameServer(config,300000);
             server.start();
             server.join();
         }

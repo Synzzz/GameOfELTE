@@ -24,14 +24,13 @@ public class GameServer extends Thread implements IClientManagerService
     private final IGameService game;
     private List<IClientService> clients;
     
-    public GameServer(Configuration config) throws IOException
+    public GameServer(Configuration config,int timeout) throws IOException
     {
         messageQueue = new LinkedBlockingQueue<>();
-        
         server = new ServerSocket(Integer.parseInt(config.get("port")));
         clientList = new ArrayList<>();
         playerCount = Integer.parseInt(config.get("players"));
-        server.setSoTimeout(300000);
+        server.setSoTimeout(timeout);
         game = new Game(this,playerCount);
     }
     
@@ -44,6 +43,7 @@ public class GameServer extends Thread implements IClientManagerService
             try(Socket socket = server.accept())
             {
                 clientList.add(socket);
+
                 try(Scanner sc = new Scanner(socket.getInputStream()))
                 {
                     System.out.println(sc.nextLine());
@@ -53,12 +53,28 @@ public class GameServer extends Thread implements IClientManagerService
             }
             catch(SocketTimeoutException e) 
             {
+                clearClosedClients();
                 if(clientList.size() == 0)
                 {
                     break;
                 }
             }
             catch(IOException e){}
+        }
+    }
+    
+    private void clearClosedClients()
+    {
+        List<Socket> toRemove=new ArrayList();
+        for (Socket s :clientList)
+        {
+            if (s.isClosed()){
+                toRemove.add(s);
+            }
+        }
+        for (Socket s : toRemove)
+        {
+            clientList.remove(s);
         }
     }
     

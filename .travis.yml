@@ -4,7 +4,7 @@ matrix:
       before_script:
         - cd scripts
       script:
-        - ./serverStart.bat
+        - ./serverBuild.bat
       after_script:
         - cd ..
 
