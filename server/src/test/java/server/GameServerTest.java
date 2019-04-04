@@ -24,45 +24,28 @@ import static org.mockito.Mockito.spy;
 public class GameServerTest {
     private GameServer server;
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private static final PrintStream outPs=new PrintStream(outContent);
     private static final PrintStream originalOut = System.out;
     
     @BeforeAll
     public  static void setUpStreams() 
     {
-        System.setOut(new PrintStream(outContent));
+        System.setOut(outPs);
     }
     
     
     @Test
     public void oneConnection() throws IOException, URISyntaxException, InterruptedException
     {
-        server=(new GameServer(spy(new Configuration("server.config")),6000));
+        server=new GameServer(new Configuration("server.config"),6000);
         server.start();
-        //Thread t1 = makeGameThread();
-        //t1.start();
-        //t1.join(); 
         Thread t1 = new DummyClient();
         t1.start();
-        t1.join();
-
+        t1.join(4000);
 
         assertEquals("test", outContent.toString().trim());
     }
     
-    public Thread makeGameThread() throws InterruptedException
-    {
-        return new Thread(() -> {
-            try(
-                Socket s = new Socket("localhost", 12345);
-                PrintWriter pw = new PrintWriter(s.getOutputStream());
-            )
-            {	
-                pw.println("test");
-                pw.flush();
-            } catch (IOException ex) {
-            }
-        });
-    }
     
     @AfterEach
     public void afterEach() throws InterruptedException

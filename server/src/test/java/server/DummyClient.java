@@ -3,6 +3,8 @@ package server;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class DummyClient extends Thread {
@@ -16,8 +18,12 @@ public class DummyClient extends Thread {
             )
             {	
                 pw.println("test");
-            } catch (IOException ex) { System.err.println(ex.toString());}
-            
+            } catch (IOException ex) { System.err.println(ex);}
+        try {
+            sleep(2);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DummyClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

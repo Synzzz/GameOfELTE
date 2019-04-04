@@ -40,15 +40,13 @@ public class GameServer extends Thread implements IClientManagerService
     {
         while(true)
         {
-            try(Socket socket = server.accept())
+            try(Socket socket = server.accept(); 
+                Scanner sc = new Scanner(socket.getInputStream());
+            )
             {
-                clientList.add(socket);
-
-                try(Scanner sc = new Scanner(socket.getInputStream()))
-                {
+                    clientList.add(socket);
                     System.out.println(sc.nextLine());
-                }
-                
+
                 groupSockets();
             }
             catch(SocketTimeoutException e) 
@@ -59,6 +57,7 @@ public class GameServer extends Thread implements IClientManagerService
                     break;
                 }
             }
+
             catch(IOException e){}
         }
     }
