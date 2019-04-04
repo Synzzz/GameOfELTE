@@ -18,11 +18,11 @@ import java.util.Scanner;
 public class GameServer extends Thread implements IClientManagerService
 {
     private final ServerSocket server;
-    private final List<Socket> clientList;
+    private final ArrayList<Socket> clientList;
     private final int playerCount;
     private final Queue<Message> messageQueue;
     private final IGameService game;
-    private List<IClientService> clients;
+    private ArrayList<IClientService> clients;
     
     public GameServer(Configuration config,int timeout) throws IOException
     {
@@ -65,7 +65,7 @@ public class GameServer extends Thread implements IClientManagerService
     
     private void clearClosedClients()
     {
-        List<Socket> toRemove=new ArrayList();
+        ArrayList<Socket> toRemove=new ArrayList<Socket>();
         for (Socket s :clientList)
         {
             if (s.isClosed()){
@@ -115,9 +115,9 @@ public class GameServer extends Thread implements IClientManagerService
 
     }
     
-    private List<IClientService> connectClients()
+    private ArrayList<IClientService> connectClients()
     {
-        List<IClientService> services = new ArrayList<>();
+        ArrayList<IClientService> services = new ArrayList<>();
         int i = 0;
         for (Socket s : clientList)
         {

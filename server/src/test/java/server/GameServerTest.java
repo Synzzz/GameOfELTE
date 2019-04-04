@@ -32,24 +32,19 @@ public class GameServerTest {
         System.setOut(new PrintStream(outContent));
     }
     
-    @BeforeEach
-    public void beforeEachTest() throws IOException, URISyntaxException, InterruptedException 
-    {
-        server=(new GameServer(spy(new Configuration("server.config")),10000));
-        server.start();
-        Thread.sleep(3);
-    }
-    
     
     @Test
     public void oneConnection() throws IOException, URISyntaxException, InterruptedException
     {
-        
-        Thread t1 = makeGameThread();
-        t1.start();
-        t1.join(); 
-        server=(new GameServer(spy(new Configuration("server.config")),10000));
+        server=(new GameServer(spy(new Configuration("server.config")),6000));
         server.start();
+        //Thread t1 = makeGameThread();
+        //t1.start();
+        //t1.join(); 
+        Thread t1 = new DummyClient();
+        t1.start();
+        t1.join();
+
 
         assertEquals("test", outContent.toString().trim());
     }
@@ -79,5 +74,6 @@ public class GameServerTest {
     public static void restoreStreams() 
     {
         System.setOut(originalOut);
-    }        
+    }   
+
 }
