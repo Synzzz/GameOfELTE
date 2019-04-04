@@ -8,7 +8,6 @@ matrix:
       after_script:
         - cd ..
     - language: csharp
-      mono: none
       before_script:
        - cd scripts
       script:
