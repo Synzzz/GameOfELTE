@@ -1,17 +1,17 @@
 matrix:
   include:
     - language: java
-      before_script:
-        - cd scripts
-      script:
-        - ./serverBuild.bat
+      before_script: 
+       - cd server
+      script: 
+       - mvn clean test
       after_script:
         - cd ..
-
     - language: csharp
+      mono: none
       before_script:
-        - cd scripts
+       - cd scripts
       script:
-        - ./clientBuild.sh
+       - ./clientBuild.sh
       after_script:
-        - cd ..
+       - cd ..
