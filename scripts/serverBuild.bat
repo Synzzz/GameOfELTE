@@ -1,3 +1,4 @@
 cd ../server
-mvn test
+mvn package
 cd ../scripts
+pause

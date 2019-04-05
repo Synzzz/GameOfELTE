@@ -1,3 +1,3 @@
 cd ../server
-mvn clean test -ff
+mvn package
 cd ../scripts
