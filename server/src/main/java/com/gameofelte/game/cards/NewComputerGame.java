@@ -5,10 +5,10 @@ import com.gameofelte.game.LuckyCard;
 import com.gameofelte.game.Player;
 
 
-public class NewComputergame extends LuckyCard
+public class NewComputerGame extends LuckyCard
 {
 
-    public NewComputergame(String name, String description, boolean collectible)
+    public NewComputerGame(String name, String description, boolean collectible)
     {
         super(name, description, collectible);
     }

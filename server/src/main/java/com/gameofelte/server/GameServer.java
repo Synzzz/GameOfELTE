@@ -14,6 +14,8 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.net.SocketTimeoutException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameServer extends Thread implements IClientManagerService
 {
@@ -31,7 +33,7 @@ public class GameServer extends Thread implements IClientManagerService
         clientList = new ArrayList<>();
         playerCount = Integer.parseInt(config.get("players"));
         server.setSoTimeout(timeout);
-        game = new Game(this,playerCount);
+        game = new Game(this,playerCount,config.get("fields"));
     }
     
   
@@ -54,6 +56,9 @@ public class GameServer extends Thread implements IClientManagerService
                 clearClosedClients();
                 if(clientList.size() == 0)
                 {
+                    try {
+                        server.close();
+                    } catch (IOException ex) {}
                     break;
                 }
             }

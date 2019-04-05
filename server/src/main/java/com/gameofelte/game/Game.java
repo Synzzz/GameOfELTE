@@ -17,22 +17,25 @@ public class Game implements IGameService
     private final IClientManagerService clientManager;
     private final List<LuckyCard> luckyCards = new ArrayList<>();
     
-    public Game(IClientManagerService clientManager, int playerCount)
+    public Game(IClientManagerService clientManager, int playerCount,String fields)
     {
         this.clientManager = clientManager;
-        
         for(int i = 0; i < playerCount; i++)
             players.add(new Player(i, this));
+        for (String type : fields.split("|"))
+        {
+            this.fields.add(FieldFactory.makeField(type));
+        }
     }
  
-    private List<Integer> generateRandomNumbers()
+    public List<Integer> generateRandomNumbers()
     {
         int sum = 0;
 	Random random = new Random();
 	List<Integer> values = new ArrayList<>();
 		
         while(sum < fields.size()){
-            int value = sum >= fields.size()-6 ? fields.size() - sum : random.nextInt(6) + 1;
+            int value = (sum >= fields.size()-6 ? (fields.size() - sum) : (random.nextInt(6) + 1));
             sum+=value;
             values.add(value);
         }

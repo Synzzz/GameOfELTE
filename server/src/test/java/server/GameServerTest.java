@@ -37,21 +37,17 @@ public class GameServerTest {
     @Test
     public void oneConnection() throws IOException, URISyntaxException, InterruptedException
     {
-        server=new GameServer(new Configuration("server.config"),6000);
+        server=new GameServer(spy(new Configuration("server.config")),6000);
         server.start();
         Thread t1 = new DummyClient();
         t1.start();
-        t1.join(4000);
+        t1.join(3000);
+        server.join();
 
         assertEquals("test", outContent.toString().trim());
     }
     
     
-    @AfterEach
-    public void afterEach() throws InterruptedException
-    {
-        server.join();
-    }
     
     @AfterAll
     public static void restoreStreams() 
