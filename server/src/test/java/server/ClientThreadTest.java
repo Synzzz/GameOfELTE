@@ -1,6 +1,13 @@
 package server;
+import com.gameofelte.game.Field;
+import com.gameofelte.game.FieldFactory;
+import com.gameofelte.game.LuckyCard;
+import com.gameofelte.game.LuckyCardFactory;
 import com.gameofelte.server.ClientThread;
 import com.gameofelte.server.GameServer;
+import com.gameofelte.server.Message;
+import com.gameofelte.server.Response;
+import com.gameofelte.server.ResponseType;
 import com.gameofelte.util.Configuration;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -153,6 +160,79 @@ public class ClientThreadTest {
         thread.activate();
         
         assertEquals(sc.nextLine(),"ACTIVATE");
+    }
+    
+    @Test
+    public void sendMessageTest()
+    {
+        Message msg = new Message("COMMAND", "DATA", null);
+        
+        thread.sendMessage(msg);
+        
+        assertEquals(sc.nextLine(), "COMMAND;DATA");
+    }
+    
+    @Test
+    public void getSocketTest()
+    {
+        assertEquals(thread.getSocket(), socket);
+    }
+    
+    @Test
+    public void sendResponseOKTest()
+    {
+        Response response = new Response(ResponseType.OK);
+        thread.sendResponse(response);
+        
+        assertEquals(sc.nextLine(), "RESPONSE;OK|null");
+    }
+    
+    @Test
+    public void sendResponseERRORTest()
+    {
+        Response response = new Response(ResponseType.ERROR, "ERROR_MSG");
+        thread.sendResponse(response);
+        
+        assertEquals(sc.nextLine(), "RESPONSE;ERROR|ERROR_MSG");
+    }
+    
+    @Test
+    public void sendLuckyCardsTest()
+    {
+        List<LuckyCard> luckyCards = new ArrayList<>();
+        luckyCards.add(LuckyCardFactory.makeLuckyCard("BonusPoints"));
+        luckyCards.add(LuckyCardFactory.makeLuckyCard("Cheating"));
+        luckyCards.add(LuckyCardFactory.makeLuckyCard("FourthCourseRequest"));
+       
+        thread.sendLuckyCards(luckyCards);
+        
+        assertEquals(sc.nextLine(), "LUCKY_CARDS;BonusPoints|descriptionPlaceholder|false,Cheating|descriptionPlaceholder|false,FourthCourseRequest|descriptionPlaceholder|true");
+    }
+    
+    @Test
+    public void sendBoardTest()
+    {
+        List<Field> fields = new ArrayList<>();
+        fields.add(FieldFactory.makeField("BadDate"));
+        fields.add(FieldFactory.makeField("Course"));
+        fields.add(FieldFactory.makeField("CourseRequest"));
+       
+        thread.sendBoard(fields);
+        
+        assertEquals(sc.nextLine(), "FIELDS;BadDate|descriptionPlaceholder,Course|descriptionPlaceholder,CourseRequest|descriptionPlaceholder");
+    }
+    
+    @Test
+    public void sendGameOverTest()
+    {
+        List<Integer> scoreboard = new ArrayList<>();
+        scoreboard.add(0);
+        scoreboard.add(1);
+        scoreboard.add(2);
+       
+        thread.sendGameOver(scoreboard);
+        
+        assertEquals(sc.nextLine(), "GAME_OVER;0,1,2");
     }
     
 }
