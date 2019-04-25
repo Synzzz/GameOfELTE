@@ -2,8 +2,16 @@ package com.gameofelte.game;
 
 import com.gameofelte.game.cards.*;
 
+/**
+ * Class for creating different types of lucky cards
+ */
 public class LuckyCardFactory {
     
+    /**
+     * Creates different types of lucky cards 
+     * @param type type of the card needed
+     * @return LuckyCard object
+     */
     public static LuckyCard makeLuckyCard(String type)
     {
         switch(type)

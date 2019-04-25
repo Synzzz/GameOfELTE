@@ -2,12 +2,22 @@ package com.gameofelte.game;
 
 import java.util.Objects;
 
+/**
+ * Abstract class for the lucky cards, implemented in the subclasses
+ * @see com.gameofelte.game.cards
+ */
 public abstract class LuckyCard 
 {
     private final String name;
     private final String description;
     private final boolean collectible;
 
+    /**
+     * Constructor for the lucky card
+     * @param name name of the card
+     * @param description description of the card
+     * @param collectible is the card collectible
+     */
     public LuckyCard(String name, String description, boolean collectible) 
     {
         this.name = name;
@@ -29,16 +39,25 @@ public abstract class LuckyCard
         return hash;
     }
 
+    /**
+     * @return name of the card
+     */
     public String getName() 
     {
         return name;
     }
 
+    /**
+     * @return description of the card
+     */
     public String getDescription() 
     {
         return description;
     }
 
+    /**
+     * @return is the card colelctible
+     */
     public boolean isCollectible() 
     {
         return collectible;
@@ -71,5 +90,12 @@ public abstract class LuckyCard
         
         return true;
     }
+
+    /**
+     * Implemented in the subclasses 
+     * @param player player to use the effect on
+     * @throws Exception if the effect couldn't be used
+     * @see com.gameofelte.game.cards
+     */
     public abstract void effectPlayer(Player player) throws Exception ;
 }

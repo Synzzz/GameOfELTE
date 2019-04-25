@@ -7,8 +7,16 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Main class of the GameOfElte server
+ */
 public class Program 
 {
+
+    /**
+     * Loads the config files and starts the server
+     * @param args commandline arguments(not needed)
+     */
     public static void main(String[] args) 
     {
         try

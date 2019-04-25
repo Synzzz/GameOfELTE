@@ -14,9 +14,10 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.net.SocketTimeoutException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+/**
+ * Class implementing IClientManagerService as a Server
+ */
 public class GameServer extends Thread implements IClientManagerService
 {
     private final ServerSocket server;
@@ -26,6 +27,12 @@ public class GameServer extends Thread implements IClientManagerService
     private final IGameService game;
     private ArrayList<IClientService> clients;
     
+    /**
+     * Constructor for GameServer, initializing a new game
+     * @param config config data
+     * @param timeout timeout if no client is active on the server
+     * @throws IOException if the ServerSocket cannot be started
+     */
     public GameServer(Configuration config,int timeout) throws IOException
     {
         messageQueue = new LinkedBlockingQueue<>();
@@ -37,6 +44,9 @@ public class GameServer extends Thread implements IClientManagerService
     }
     
   
+    /**
+     * Gets client connections until it timeouts from no connection.
+     */
     @Override
     public void run()
     {
@@ -67,6 +77,9 @@ public class GameServer extends Thread implements IClientManagerService
         }
     }
     
+    /**
+     *  Clears out closed clients from clientList
+     */
     private void clearClosedClients()
     {
         ArrayList<Socket> toRemove=new ArrayList<Socket>();
@@ -82,6 +95,9 @@ public class GameServer extends Thread implements IClientManagerService
         }
     }
     
+    /**
+     * Starts the game if enough clients are connected
+     */
     private void groupSockets()
     {
         if(clientList.size() == playerCount)
@@ -104,6 +120,9 @@ public class GameServer extends Thread implements IClientManagerService
         }
     }
     
+    /**
+     * Starts the game and disconnects the clients when it's over
+    */
     private void startGame()
     {
         clients = connectClients();
@@ -119,6 +138,10 @@ public class GameServer extends Thread implements IClientManagerService
 
     }
     
+    /**
+     * Creates ClientThreads for every client
+     * @return list of ClientThreads
+     */
     private ArrayList<IClientService> connectClients()
     {
         ArrayList<IClientService> services = new ArrayList<>();
@@ -136,24 +159,35 @@ public class GameServer extends Thread implements IClientManagerService
         return services;
     }
     
+    /**
+     * Adds message to the messageQueue
+     * @param msg Message object
+     */
     public void addMessage(Message msg)
     {
         messageQueue.add(msg);
     }
     
+    /**
+     * Sends message to every client connected
+     * @param msg Message object
+     */
     private void sendMessageToAll(Message msg)
     {
         for(IClientService client : clients)
             client.sendMessage(msg);
     }
     
-    //TODO targyfelvetel commandok
+    /**
+     * Manages the incoming messages from the clients
+     * @param msg Message object
+     */
     private void processMessage(Message msg)
     {
         int senderIndex = getSenderIndex(msg);
         boolean senderIsActive = senderIndex == game.getActivePlayerIndex();
         Response response;
-        
+        //TODO targyfelvetel commandok
         try
         {
             switch(msg.getCommand())
@@ -177,6 +211,10 @@ public class GameServer extends Thread implements IClientManagerService
         clients.get(senderIndex).sendResponse(response);
     }
     
+    /**
+     * @param msg Message object
+     * @return index of the Sender of the message
+     */
     private int getSenderIndex(Message msg)
     {
         int i = 0;
@@ -189,10 +227,13 @@ public class GameServer extends Thread implements IClientManagerService
             else 
                 i++;
         }
-        
         return i;
     }
 
+    /**
+     * Sends the random numbers to every client
+     * @param numbers list of numbers
+     */
     @Override
     public void sendRandomNumbersToAll(List<Integer> numbers) 
     {
@@ -200,18 +241,30 @@ public class GameServer extends Thread implements IClientManagerService
             client.sendRandomNumbers(numbers);
     }
 
+    /**
+     * Activates the current player
+     * @param playerIndex index of the current player
+     */
     @Override
     public void activatePlayer(int playerIndex) 
     {
          clients.get(playerIndex).activate();
     }
 
+    /**
+     * See {@link ClientThread#showSubjectRegistrationWindow() showSubjectRegistrationWindow}
+     * @param playerIndex index of the receiving player
+     */
     @Override
     public void showSubjectRegistrationWindow(int playerIndex) 
     {
         clients.get(playerIndex).showSubjectRegistrationWindow();
     }
 
+    /**
+     * See {@link ClientThread#sendGameOver(List) sendGameOver}
+     * @param scoreboard scoreboard of the game
+     */
     @Override
     public void sendGameOver(List<Integer> scoreboard) 
     {
@@ -219,47 +272,84 @@ public class GameServer extends Thread implements IClientManagerService
             client.sendGameOver(scoreboard);
     }
 
+    /**
+     * See {@link ClientThread#setMoney(int) setMoney}
+     * @param playerIndex index of player
+     * @param money amount of money
+     */
     @Override
     public void setMoney(int playerIndex, int money) 
     {
         clients.get(playerIndex).setMoney(money);
     }
     
-        @Override
+    /**
+     * See {@link ClientThread#beginLearnSubject() beginLearnSubject}
+     * @param playerIndex index of player
+     */
+    @Override
     public void beginLearnSubject(int playerIndex) {
         clients.get(playerIndex).beginLearnSubject();
     }
 
+    /**
+     * See {@link ClientThread#beginWorkOrStudyChoice() beginWorkOrStudyChoice}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginWorkOrStudyChoice(int playerIndex) {
         clients.get(playerIndex).beginWorkOrStudyChoice();
     }
 
+    /**
+     * See {@link ClientThread#beginCourseRequest() beginCourseRequest}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginCourseRequest(int playerIndex) {
         clients.get(playerIndex).beginCourseRequest();
     }
 
+    /**
+     * See {@link ClientThread#beginLosingKnowledge() beginLosingKnowledge}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginLosingKnowledge(int playerIndex) {
        clients.get(playerIndex).beginLosingKnowledge();
     }
 
+    /**
+     * See {@link ClientThread#beginOfferedMark() beginOfferedMark}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginOfferedMark(int playerIndex) {
         clients.get(playerIndex).beginOfferedMark();
     }
 
+    /**
+     * See {@link ClientThread#beginMatekingChoice() beginMatekingChoice}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginMatekingChoice(int playerIndex) {
         clients.get(playerIndex).beginMatekingChoice();
     }
 
+    /**
+     * See {@link ClientThread#beginOvertimeWork() beginOvertimeWork}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginOvertimeWork(int playerIndex) {
         clients.get(playerIndex).beginOvertimeWork();
     }
 
+    /**
+     * See {@link ClientThread#beginUnregisterSubject() beginUnregisterSubject}
+     * @param playerIndex index of player
+     */
     @Override
     public void beginUnregisterSubject(int playerIndex) {
        clients.get(playerIndex).beginUnregisterSubject();

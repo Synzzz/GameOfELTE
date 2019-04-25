@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Class for managing the Game
+ */
 public class Game implements IGameService
 {
     private int activePlayerIndex = 0;
@@ -17,6 +20,12 @@ public class Game implements IGameService
     private final IClientManagerService clientManager;
     private final List<LuckyCard> luckyCards = new ArrayList<>();
     
+    /**
+     * Constructor for the game
+     * @param clientManager the GameServer
+     * @param playerCount how many players to start
+     * @param fields list of the fields in String format, divided by "|"
+     */
     public Game(IClientManagerService clientManager, int playerCount,String fields)
     {
         this.clientManager = clientManager;
@@ -28,6 +37,10 @@ public class Game implements IGameService
         }
     }
  
+    /**
+     * Generates a list of random Integers so the sum of each list is the same
+     * @return list of Integers
+     */
     public List<Integer> generateRandomNumbers()
     {
         int sum = 0;
@@ -43,12 +56,18 @@ public class Game implements IGameService
         return values;
     }
     
+    /**
+     * @return boolean telling if the game is over
+     */
     @Override
     public boolean isOver()
     {
         return gameOver;
     }
     
+    /**
+     * Starts the game with sending the first popup window command to the first player
+     */
     @Override
     public void start()
     {
@@ -56,6 +75,9 @@ public class Game implements IGameService
         clientManager.showSubjectRegistrationWindow(activePlayerIndex);
     }
     
+    /**
+     * Switches to the next player.
+     */
     @Override
     public void nextPlayer()
     {
@@ -76,12 +98,20 @@ public class Game implements IGameService
         clientManager.activatePlayer(activePlayerIndex);
     }
 
+    /**
+     * @return index of the current player
+     */
     @Override
     public int getActivePlayerIndex() 
     {
         return activePlayerIndex;
     }
 
+    /**
+     * Changes the current player's field to the one in fieldIndex
+     * @param fieldIndex index of the field
+     * @throws Exception if the field effect couldn't be used
+     */
     @Override
     public void setPlayerField(int fieldIndex) throws Exception 
     {
@@ -90,6 +120,11 @@ public class Game implements IGameService
         fields.get(fieldIndex).effectPlayer(activePlayer);
     }
 
+    /**
+     * Takes a card at the cardIndex from the lucky card pile and activates it if it isn't a collectible
+     * @param cardIndex index of the card
+     * @throws Exception if the effect couldn't be used
+     */
     @Override
     public void pickLuckyCard(int cardIndex) throws Exception 
     {
@@ -102,6 +137,11 @@ public class Game implements IGameService
             card.effectPlayer(activePlayer);
     }
 
+    /**
+     * Activates a card at the cardIndex if the player has it
+     * @param cardIndex index of the card
+     * @throws Exception if the player doesn't have the card
+     */
     @Override
     public void useLuckyCard(int cardIndex) throws Exception 
     {
@@ -114,60 +154,102 @@ public class Game implements IGameService
         card.effectPlayer(activePlayer);
     }
 
+    /**
+     * @return lucky cards list
+     */
     @Override
     public List<LuckyCard> getLuckyCards() 
     {
         return luckyCards;
     }
 
+    /**
+     * @return fields
+     */
     @Override
     public List<Field> getFields() 
     {
         return fields;
     }
 
+    /**
+     * sets the player at playerIndex's money to the amount given
+     * @param playerIndex index of the player
+     * @param money amount of money 
+     */
     @Override
     public void setMoney(int playerIndex, int money) 
     {
         clientManager.setMoney(playerIndex, money);
     }
     
+    /**
+     * Sends the learn subject command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginLearnSubject(int playerIndex) {
         clientManager.beginLearnSubject(playerIndex);
     }
 
+    /**
+     * Sends the work or study command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginWorkOrStudyChoice(int playerIndex) {
         clientManager.beginWorkOrStudyChoice(playerIndex);
     }
 
+    /**
+     * Sends the course request command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginCourseRequest(int playerIndex) {
         clientManager.beginCourseRequest(playerIndex);
     }
 
-
+    /**
+     * Sends the lose knowledge command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginLosingKnowledge(int playerIndex) {
         clientManager.beginLosingKnowledge(playerIndex);
     }
 
+    /**
+     * Sends the offered mark command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginOfferedMark(int playerIndex) {
         clientManager.beginOfferedMark(playerIndex);
     }
 
+    /**
+     * Sends the mateking choice command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginMatekingChoice(int playerIndex) {
         clientManager.beginMatekingChoice(playerIndex);
     }
 
+    /**
+     * Sends the overtime work command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginOvertimeWork(int playerIndex) {
         clientManager.beginOvertimeWork(playerIndex);
     }
 
+    /**
+     * Sends the unregister subject command to the client through the server
+     * @param playerIndex index of the player
+     */
     @Override
     public void beginUnregisterSubject(int playerIndex) {
         clientManager.beginUnregisterSubject(playerIndex);

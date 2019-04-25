@@ -3,8 +3,16 @@ package com.gameofelte.game;
 import com.gameofelte.game.Field;
 import com.gameofelte.game.fields.*;
 
+/**
+ * Class for creating different types of fields 
+ */
 public class FieldFactory {
     
+    /**
+     * Creates different types of fields 
+     * @param type type of the Field needed
+     * @return Field object
+     */
     public static Field makeField(String type)
     {
        switch(type)
