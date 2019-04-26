@@ -2,7 +2,7 @@ matrix:
   include:
     - language: java
       before_install:
-       - chmod +x scripts/simian/simian.jar
+       - chmod +x scripts/simianServer.bat
       before_script: 
        - cd server
       script: 
@@ -18,7 +18,7 @@ matrix:
        - cd ..
     - language: csharp
       before_install:
-       - chmod +x scripts/simian/simian.jar
+       - chmod +x scripts/simianClient.bat
       before_script:
        - cd scripts
       script:
