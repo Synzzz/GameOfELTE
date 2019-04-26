@@ -288,7 +288,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginLearnSubject(int playerIndex) {
+    public void cBeginLearnSubject(int playerIndex) {
         clients.get(playerIndex).beginLearnSubject();
     }
 
@@ -297,7 +297,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginWorkOrStudyChoice(int playerIndex) {
+    public void cBeginWorkOrStudyChoice(int playerIndex) {
         clients.get(playerIndex).beginWorkOrStudyChoice();
     }
 
@@ -306,7 +306,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginCourseRequest(int playerIndex) {
+    public void cBeginCourseRequest(int playerIndex) {
         clients.get(playerIndex).beginCourseRequest();
     }
 
@@ -315,7 +315,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginLosingKnowledge(int playerIndex) {
+    public void cBeginLosingKnowledge(int playerIndex) {
        clients.get(playerIndex).beginLosingKnowledge();
     }
 
@@ -324,7 +324,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginOfferedMark(int playerIndex) {
+    public void cBeginOfferedMark(int playerIndex) {
         clients.get(playerIndex).beginOfferedMark();
     }
 
@@ -333,7 +333,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginMatekingChoice(int playerIndex) {
+    public void cBeginMatekingChoice(int playerIndex) {
         clients.get(playerIndex).beginMatekingChoice();
     }
 
@@ -342,7 +342,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginOvertimeWork(int playerIndex) {
+    public void cBeginOvertimeWork(int playerIndex) {
         clients.get(playerIndex).beginOvertimeWork();
     }
 
@@ -351,7 +351,7 @@ public class GameServer extends Thread implements IClientManagerService
      * @param playerIndex index of player
      */
     @Override
-    public void beginUnregisterSubject(int playerIndex) {
+    public void cBeginUnregisterSubject(int playerIndex) {
        clients.get(playerIndex).beginUnregisterSubject();
     }
 }

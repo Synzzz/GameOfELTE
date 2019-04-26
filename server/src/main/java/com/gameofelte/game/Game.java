@@ -189,7 +189,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginLearnSubject(int playerIndex) {
-        clientManager.beginLearnSubject(playerIndex);
+        clientManager.cBeginLearnSubject(playerIndex);
     }
 
     /**
@@ -198,7 +198,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginWorkOrStudyChoice(int playerIndex) {
-        clientManager.beginWorkOrStudyChoice(playerIndex);
+        clientManager.cBeginWorkOrStudyChoice(playerIndex);
     }
 
     /**
@@ -207,7 +207,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginCourseRequest(int playerIndex) {
-        clientManager.beginCourseRequest(playerIndex);
+        clientManager.cBeginCourseRequest(playerIndex);
     }
 
     /**
@@ -216,7 +216,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginLosingKnowledge(int playerIndex) {
-        clientManager.beginLosingKnowledge(playerIndex);
+        clientManager.cBeginLosingKnowledge(playerIndex);
     }
 
     /**
@@ -225,7 +225,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginOfferedMark(int playerIndex) {
-        clientManager.beginOfferedMark(playerIndex);
+        clientManager.cBeginOfferedMark(playerIndex);
     }
 
     /**
@@ -234,7 +234,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginMatekingChoice(int playerIndex) {
-        clientManager.beginMatekingChoice(playerIndex);
+        clientManager.cBeginMatekingChoice(playerIndex);
     }
 
     /**
@@ -243,7 +243,7 @@ public class Game implements IGameService
      */
     @Override
     public void beginOvertimeWork(int playerIndex) {
-        clientManager.beginOvertimeWork(playerIndex);
+        clientManager.cBeginOvertimeWork(playerIndex);
     }
 
     /**
@@ -252,6 +252,6 @@ public class Game implements IGameService
      */
     @Override
     public void beginUnregisterSubject(int playerIndex) {
-        clientManager.beginUnregisterSubject(playerIndex);
+        clientManager.cBeginUnregisterSubject(playerIndex);
     }
 }

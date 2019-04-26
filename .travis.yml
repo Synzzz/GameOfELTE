@@ -7,11 +7,23 @@ matrix:
        - mvn clean test
        - mvn javadoc:javadoc
       after_script:
-        - cd ..
+       - cd ..
+      before_script: 
+       - cd scripts
+      script: 
+       - simianServer.bat
+      after_script:
+       - cd ..
     - language: csharp
       before_script:
        - cd scripts
       script:
        - ./clientBuild.sh
+      after_script:
+       - cd ..
+      before_script: 
+       - cd scripts
+      script: 
+       - simianClient.bat
       after_script:
        - cd ..
