@@ -11,7 +11,7 @@ matrix:
       before_script: 
        - cd scripts
       script: 
-       - ./simianServer.bat
+       - bash ./simianServer.bat
       after_script:
        - cd ..
     - language: csharp
@@ -24,6 +24,6 @@ matrix:
       before_script: 
        - cd scripts
       script: 
-       - ./simianClient.bat
+       - bash ./simianClient.bat
       after_script:
        - cd ..
