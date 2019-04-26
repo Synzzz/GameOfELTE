@@ -13,7 +13,7 @@ matrix:
       before_script: 
        - cd scripts/simian
       script: 
-       - ./simian.jar -failOnDuplication + ../../server/src/main/java/com/gameofelte/**/*.java
+       - ./java -jar simian.jar -failOnDuplication + ../../server/src/main/java/com/gameofelte/**/*.java
       after_script:
        - cd ../..
     - language: csharp
@@ -28,6 +28,6 @@ matrix:
       before_script: 
        - cd scripts/simian
       script: 
-       - ./simian.jar -failOnDuplication + ../../client/**/*.cs
+       - ./java -jar simian.jar -failOnDuplication + ../../client/**/*.cs
       after_script:
        - cd ../..
