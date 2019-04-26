@@ -1,6 +1,8 @@
 matrix:
   include:
     - language: java
+      before_install:
+       - chmod +x simian.jar
       before_script: 
        - cd server
       script: 
@@ -11,9 +13,9 @@ matrix:
       before_script: 
        - cd scripts
       script: 
-       - bash ./simianServer.bat
+       - ./simian.jar -failOnDuplication + ../../server/src/main/java/com/gameofelte/**/*.java
       after_script:
-       - cd ..
+       - cd ../..
     - language: csharp
       before_script:
        - cd scripts
@@ -22,8 +24,8 @@ matrix:
       after_script:
        - cd ..
       before_script: 
-       - cd scripts
+       - cd scripts/simian
       script: 
-       - bash ./simianClient.bat
+       - ./simian.jar -failOnDuplication + ../../client/**/*.cs
       after_script:
-       - cd ..
+       - cd ../..
