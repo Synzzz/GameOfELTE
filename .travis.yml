@@ -2,7 +2,7 @@ matrix:
   include:
     - language: java
       before_install:
-       - chmod +x simian.jar
+       - chmod +x scripts/simian/simian.jar
       before_script: 
        - cd server
       script: 
