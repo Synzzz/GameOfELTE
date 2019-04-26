@@ -1,3 +1,3 @@
 cd simian
-./simian-2.5.10.exe -failOnDuplication + ../../client/**/*.cs
+./simian-2.5.10.jar -failOnDuplication + ../../client/**/*.cs
 cd ..
