@@ -9,11 +9,11 @@ matrix:
       after_script:
        - cd ..
       before_script: 
-       - cd scripts
+       - cd scripts/simian
       script: 
-       - simianServer.bat
+       - ./simian-2.5.10.exe -failOnDuplication + ../../server/src/main/java/com/gameofelte/**/*.java
       after_script:
-       - cd ..
+       - cd ../..
     - language: csharp
       before_script:
        - cd scripts
@@ -22,8 +22,8 @@ matrix:
       after_script:
        - cd ..
       before_script: 
-       - cd scripts
+       - cd scripts/simian
       script: 
-       - simianClient.bat
+       - ./simian-2.5.10.exe -failOnDuplication + ../../client/**/*.cs
       after_script:
        - cd ..
