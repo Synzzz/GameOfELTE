@@ -11,12 +11,14 @@ matrix:
       after_script:
        - cd ..
       before_script: 
-       - cd scripts
+       - cd scripts/simian
       script: 
        - ./simian.jar -failOnDuplication + ../../server/src/main/java/com/gameofelte/**/*.java
       after_script:
        - cd ../..
     - language: csharp
+      before_install:
+       - chmod +x scripts/simian/simian.jar
       before_script:
        - cd scripts
       script:
