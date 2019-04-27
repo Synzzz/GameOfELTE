@@ -1,5 +1,7 @@
 # Game of ELTE
 
+Build állapot: [![Build Status](https://travis-ci.org/Synzzz/GameOfELTE.svg?branch=master)](https://travis-ci.org/Synzzz/GameOfELTE)
+
 ## A pálya
 ||||||||||
 |-----------------------	|---------------	|------------	|---------------	|----------	|---------------	|-----------	|---------------	|-----------------------	|
