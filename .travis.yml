@@ -5,6 +5,7 @@ matrix:
        - cd server
       script: 
        - mvn clean test
+       - mvn verify
        - mvn javadoc:javadoc
       after_script:
         - cd ..
