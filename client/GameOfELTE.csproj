@@ -50,15 +50,75 @@
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\LuckyCard.cs" />
     <Compile Include="Game\Player.cs" />
+    <Compile Include="GUI\CourseRequestWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CourseRequestWindow.Designer.cs">
+      <DependentUpon>CourseRequestWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUI.cs" />
+    <Compile Include="GUI\LearnSubjectWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LearnSubjectWindow.Designer.cs">
+      <DependentUpon>LearnSubjectWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LosingKnowledgeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LosingKnowledgeWindow.Designer.cs">
+      <DependentUpon>LosingKnowledgeWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MatekingChoiceWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MatekingChoiceWindow.Designer.cs">
+      <DependentUpon>MatekingChoiceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OfferedMarkWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OfferedMarkWindow.Designer.cs">
+      <DependentUpon>OfferedMarkWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\OvertimeWorkWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OvertimeWorkWindow.Designer.cs">
+      <DependentUpon>OvertimeWorkWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Renderer.cs" />
     <Compile Include="GUI\RenderFrame.cs" />
+    <Compile Include="GUI\ScoreBoardWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ScoreBoardWindow.Designer.cs">
+      <DependentUpon>ScoreBoardWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SubjectRegistrationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SubjectRegistrationWindow.Designer.cs">
+      <DependentUpon>SubjectRegistrationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UnregisterSubjectWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\UnregisterSubjectWindow.Designer.cs">
+      <DependentUpon>UnregisterSubjectWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\WorkOrStudyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WorkOrStudyWindow.Designer.cs">
+      <DependentUpon>WorkOrStudyWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IGUIService.cs" />
     <Compile Include="Interfaces\IGameService.cs" />
     <Compile Include="Interfaces\IMessageHandler.cs" />
@@ -69,8 +129,38 @@
     <Compile Include="Network\NetworkManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\CourseRequestWindow.resx">
+      <DependentUpon>CourseRequestWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LearnSubjectWindow.resx">
+      <DependentUpon>LearnSubjectWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LosingKnowledgeWindow.resx">
+      <DependentUpon>LosingKnowledgeWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MatekingChoiceWindow.resx">
+      <DependentUpon>MatekingChoiceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OfferedMarkWindow.resx">
+      <DependentUpon>OfferedMarkWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OvertimeWorkWindow.resx">
+      <DependentUpon>OvertimeWorkWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ScoreBoardWindow.resx">
+      <DependentUpon>ScoreBoardWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SubjectRegistrationWindow.resx">
+      <DependentUpon>SubjectRegistrationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UnregisterSubjectWindow.resx">
+      <DependentUpon>UnregisterSubjectWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WorkOrStudyWindow.resx">
+      <DependentUpon>WorkOrStudyWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
