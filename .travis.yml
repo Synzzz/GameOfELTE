@@ -5,7 +5,7 @@ matrix:
     - cd server
     script:
     - mvn clean test
-    - mvn package
+
     - mvn verify
     - mvn javadoc:javadoc
     after_script:
@@ -16,6 +16,12 @@ matrix:
     script:
     - "./clientBuild.sh"
     after_script:
+    - cd ..
+    before_deploy:
+    - cd server
+    - mvn package
+    - cd ../scripts
+    - "./clientBuild.sh"
     - cd ..
     deploy:
         provider: releases
