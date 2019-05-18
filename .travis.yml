@@ -26,5 +26,3 @@ deploy:
         - "server/target/*.jar"
         - "client/bin/debug/*.exe"
     skip_cleanup: true
-    on:
-        tags: true
