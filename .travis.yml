@@ -18,8 +18,9 @@ matrix:
        - cd scripts
       script:
        - ./clientBuild.sh
-      after_script:
        - DONE=true
+
+      after_script:
        - cd ..
 
 deploy:
