@@ -5,6 +5,7 @@ matrix:
        - cd server
       script: 
        - mvn clean test
+       - mvn package
        - mvn verify
        - mvn javadoc:javadoc
       after_script:
@@ -16,3 +17,14 @@ matrix:
        - ./clientBuild.sh
       after_script:
        - cd ..
+deploy:
+    provider: releases
+    api_key:
+        secure: "DzO0wSh22X9XmklnCTpdixq4tX1wcipxtsPMvLWb+hzXYCskDIqRhhcb6udMpJkLu66NUiB0KHqim/YeDOWxrLKnyMOco86e7C4HqpHNc26NzyK6da3ChTkTl35O1j6LL2GN17VEplskibasb1TE6FDduz1uPnoMz8MsfwdXd+2pxliCXD5YH5ASoEcxHXRWJZ27oxOFr+wN9vCu4xDvLdJSpmLu0GKHZI8QncPBu4onuEkdTG496iD+3Q52oYl2xkJBK62CAjpy+Jf5NSZQZKw8dBAOra2dR/gJtwHm/spanDkx0xXKCsIpFPPy+JkQEy+2y2SA4LleGIhGVp2lvxsZ2ZdmbGi1PMaTe93NWg4tN0m0PCAu1HXqjY1GTgkbj7Zr9pt5GXUNU7rkBHkb80g2/TJ7rzwiWze7mQKGgfsQFCKowkuwjHKZvrae/vYhlAgYAU17FsiC0R+ychQnRZEZV4bxHUr7RQZyCZdzXHDnED2xsIJqTQeSpwQSsWLkb50PsKO5pRE+q966PHtVCgN+8TB6qFulnobkgA2dHGSw2KA8FUft8Q1tupuZQOt93fzC7lOn1sqY76PVvwjx8WGJmTmj5XVYo4krmm5GiS0eUoQlsNQMxTdNLMdODa3Bm5a8pAAaUWLMWTI5fh9C1LhCywivKnA2X8MhojTIXNE="
+    file_glob: true
+    file: 
+        - "server/target/*.jar"
+        - "client/bin/debug/*.exe"
+    skip_cleanup: true
+    on:
+        tags: true
