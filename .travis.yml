@@ -20,11 +20,10 @@ matrix:
 deploy:
     provider: releases
     api_key:
-        secure: "DzO0wSh22X9XmklnCTpdixq4tX1wcipxtsPMvLWb+hzXYCskDIqRhhcb6udMpJkLu66NUiB0KHqim/YeDOWxrLKnyMOco86e7C4HqpHNc26NzyK6da3ChTkTl35O1j6LL2GN17VEplskibasb1TE6FDduz1uPnoMz8MsfwdXd+2pxliCXD5YH5ASoEcxHXRWJZ27oxOFr+wN9vCu4xDvLdJSpmLu0GKHZI8QncPBu4onuEkdTG496iD+3Q52oYl2xkJBK62CAjpy+Jf5NSZQZKw8dBAOra2dR/gJtwHm/spanDkx0xXKCsIpFPPy+JkQEy+2y2SA4LleGIhGVp2lvxsZ2ZdmbGi1PMaTe93NWg4tN0m0PCAu1HXqjY1GTgkbj7Zr9pt5GXUNU7rkBHkb80g2/TJ7rzwiWze7mQKGgfsQFCKowkuwjHKZvrae/vYhlAgYAU17FsiC0R+ychQnRZEZV4bxHUr7RQZyCZdzXHDnED2xsIJqTQeSpwQSsWLkb50PsKO5pRE+q966PHtVCgN+8TB6qFulnobkgA2dHGSw2KA8FUft8Q1tupuZQOt93fzC7lOn1sqY76PVvwjx8WGJmTmj5XVYo4krmm5GiS0eUoQlsNQMxTdNLMdODa3Bm5a8pAAaUWLMWTI5fh9C1LhCywivKnA2X8MhojTIXNE="
-    skip_cleanup: true
+        secure: cI1AY9fpp03LRLzCZos+2s5qp35tSynRJ8AMO9VgSaBGXXJN8d4MAo+MuYqa0sR7kQjn/l4SK0u99uH3YZGpM/w33Fm503nm7N+7Tb/Yf7kOOzAd908VrKr00GSmyJmmEiamGdeoGMgPbVTPfZMgpLlw2B2f2YA0Qq9EvAYzFEWruWtJJpaofxYwpaMZfgciqh0ItJ0NlQrZYzfodJJgG+Bm8RaGkDAQ0/o9JPAdr59+NTRk1pOC3l621C0BHSDZSdEZ2Fo87mJ8pxx9H7gr9tIcOTzhrXwUj72F727FYpuhUCW+3CMVgJENFPOgkNLpmtDtj6UsHA8A1Ld301rv/ZaRRwtYMMOjF82LJqKfdIrihFwqqJkldkoc3qNElIkgm/NwXnKNdOFFJgJFYoyAlZvH/uWR0wGiSWU8n1C2h4lkueZFyZnceN5RrAz0S86LZly0YPFSnYjmtkCYbx+YY4iy+JGIuTDfoIbLZBHMHicjc+HUmAoTvi3SZ6BeBcHY8Ov7eg2zKaUv2oMuOqBlqLmDEJgZtwQIfF2MLRsPMFQAIz5KpKoJ5x88cbGdaCVTBt7uSnXseeQl5HNu9NX70EYE5apoNM6CLi21px2wQrD/3I3Qzp88Zbbq3le3WW78gZKjJyDuLw6aEn6DhGzi1WGXw6CfdTSl73QLVrzyHBg=
     file_glob: true
     file: 
-        - server/target/*.jar
-        - client/bin/debug/*.exe
-    on:
-        repo: Synzzz/GameOfELTE
+        - "server/target/*.jar"
+        - "client/bin/debug/*.exe"
+    skip_cleanup: true
+
