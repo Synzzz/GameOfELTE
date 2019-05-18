@@ -17,13 +17,13 @@ matrix:
     - "./clientBuild.sh"
     after_script:
     - cd ..
-deploy:
-    provider: releases
-    api_key:
-        secure: cI1AY9fpp03LRLzCZos+2s5qp35tSynRJ8AMO9VgSaBGXXJN8d4MAo+MuYqa0sR7kQjn/l4SK0u99uH3YZGpM/w33Fm503nm7N+7Tb/Yf7kOOzAd908VrKr00GSmyJmmEiamGdeoGMgPbVTPfZMgpLlw2B2f2YA0Qq9EvAYzFEWruWtJJpaofxYwpaMZfgciqh0ItJ0NlQrZYzfodJJgG+Bm8RaGkDAQ0/o9JPAdr59+NTRk1pOC3l621C0BHSDZSdEZ2Fo87mJ8pxx9H7gr9tIcOTzhrXwUj72F727FYpuhUCW+3CMVgJENFPOgkNLpmtDtj6UsHA8A1Ld301rv/ZaRRwtYMMOjF82LJqKfdIrihFwqqJkldkoc3qNElIkgm/NwXnKNdOFFJgJFYoyAlZvH/uWR0wGiSWU8n1C2h4lkueZFyZnceN5RrAz0S86LZly0YPFSnYjmtkCYbx+YY4iy+JGIuTDfoIbLZBHMHicjc+HUmAoTvi3SZ6BeBcHY8Ov7eg2zKaUv2oMuOqBlqLmDEJgZtwQIfF2MLRsPMFQAIz5KpKoJ5x88cbGdaCVTBt7uSnXseeQl5HNu9NX70EYE5apoNM6CLi21px2wQrD/3I3Qzp88Zbbq3le3WW78gZKjJyDuLw6aEn6DhGzi1WGXw6CfdTSl73QLVrzyHBg=
-    file_glob: true
-    file: 
-        - "server/target/*.jar"
-        - "client/bin/debug/*.exe"
-    skip_cleanup: true
+    deploy:
+        provider: releases
+        api_key:
+            secure: cI1AY9fpp03LRLzCZos+2s5qp35tSynRJ8AMO9VgSaBGXXJN8d4MAo+MuYqa0sR7kQjn/l4SK0u99uH3YZGpM/w33Fm503nm7N+7Tb/Yf7kOOzAd908VrKr00GSmyJmmEiamGdeoGMgPbVTPfZMgpLlw2B2f2YA0Qq9EvAYzFEWruWtJJpaofxYwpaMZfgciqh0ItJ0NlQrZYzfodJJgG+Bm8RaGkDAQ0/o9JPAdr59+NTRk1pOC3l621C0BHSDZSdEZ2Fo87mJ8pxx9H7gr9tIcOTzhrXwUj72F727FYpuhUCW+3CMVgJENFPOgkNLpmtDtj6UsHA8A1Ld301rv/ZaRRwtYMMOjF82LJqKfdIrihFwqqJkldkoc3qNElIkgm/NwXnKNdOFFJgJFYoyAlZvH/uWR0wGiSWU8n1C2h4lkueZFyZnceN5RrAz0S86LZly0YPFSnYjmtkCYbx+YY4iy+JGIuTDfoIbLZBHMHicjc+HUmAoTvi3SZ6BeBcHY8Ov7eg2zKaUv2oMuOqBlqLmDEJgZtwQIfF2MLRsPMFQAIz5KpKoJ5x88cbGdaCVTBt7uSnXseeQl5HNu9NX70EYE5apoNM6CLi21px2wQrD/3I3Qzp88Zbbq3le3WW78gZKjJyDuLw6aEn6DhGzi1WGXw6CfdTSl73QLVrzyHBg=
+        file_glob: true
+        file: 
+            - "server/target/*.jar"
+            - "client/bin/debug/*.exe"
+        skip_cleanup: true
 
