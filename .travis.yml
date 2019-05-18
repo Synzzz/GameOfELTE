@@ -19,7 +19,8 @@ matrix:
       script:
        - ./clientBuild.sh
       after_script:
-       - env: DONE=true cd ..
+       - DONE=true
+       - cd ..
 
 deploy:
     provider: releases
