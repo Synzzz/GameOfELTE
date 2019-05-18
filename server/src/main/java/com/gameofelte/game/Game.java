@@ -25,8 +25,9 @@ public class Game implements IGameService
      * @param clientManager the GameServer
      * @param playerCount how many players to start
      * @param fields list of the fields in String format, divided by "|"
+     * @param cards list of the cards in String format, divided by "|"
      */
-    public Game(IClientManagerService clientManager, int playerCount,String fields)
+    public Game(IClientManagerService clientManager, int playerCount,String fields,String cards)
     {
         this.clientManager = clientManager;
         for(int i = 0; i < playerCount; i++)
@@ -34,6 +35,10 @@ public class Game implements IGameService
         for (String type : fields.split("|"))
         {
             this.fields.add(FieldFactory.makeField(type));
+        }
+        for (String type : cards.split("|"))
+        {
+            this.luckyCards.add(LuckyCardFactory.makeLuckyCard(type));
         }
     }
  

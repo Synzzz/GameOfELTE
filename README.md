@@ -57,10 +57,9 @@ Az nyer, aki a legtovább marad játékban, vagy aki előbb elvégzi az összes 
 - **Puskázás:** Rajtakaptak, hogy puskázol, ezért egy véletlenszerűen kiválasztott tárgyat elbuksz.
 - **Másnaposság:** Előző este keményre sikerült elvesztesz egy tudást egy általad választott tárgyból.
 - **Megajánlott jegy:** Kiderült, hogy sikerült megajánlott jegyet szerezni egy általad választott tárgyra.
-- **Tippmix:** Tippmixen nyertél 50 000(?) Ft-ot.
+- **Tippmix:** Tippmixen nyertél 50 000 Ft-ot.
 - **50% Mateking discount:** Választhatsz hogy fizetsz 50 000 Ft-ot így szerezve tudást Mateking által, vagy később használod fel.
 - **Túlóra:** Behívtak túlórázni ezért a kereseted kétszeresét megkapod, azonban veszítesz egy tudást az általad választott tárgyból.
-- **Elromlott a számítód:** Új gépet kell venned ez sajnos 100 000 Ft-t.
+- **Elromlott a géped:** Új gépet kell venned ez sajnos 100 000 Ft-t.
 - **Kijött egy új game:** Rákockultál egy új játékra ami miatt kihagytál pár órát, veszítesz egy tudást az általad választott tárgyból.
 - **Deadline over:** Mindig lemaradtál a captcha-ról buktad a tárgyat.
-- **Plusz pont:** Ez felhasználható a versenyjelentkezésnél, nem tudnak kitúrni.

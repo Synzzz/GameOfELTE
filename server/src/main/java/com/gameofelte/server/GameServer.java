@@ -14,6 +14,8 @@ import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.net.SocketTimeoutException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class implementing IClientManagerService as a Server
@@ -40,7 +42,7 @@ public class GameServer extends Thread implements IClientManagerService
         clientList = new ArrayList<>();
         playerCount = Integer.parseInt(config.get("players"));
         server.setSoTimeout(timeout);
-        game = new Game(this,playerCount,config.get("fields"));
+        game = new Game(this,playerCount,config.get("fields"),config.get("cards"));
     }
     
   
@@ -52,13 +54,14 @@ public class GameServer extends Thread implements IClientManagerService
     {
         while(true)
         {
-            try(Socket socket = server.accept(); 
+            try(
+                Socket socket = server.accept(); 
                 Scanner sc = new Scanner(socket.getInputStream());
             )
             {
-                    clientList.add(socket);
-                    System.out.println(sc.nextLine());
-
+                clientList.add(socket);
+                System.out.println(sc.nextLine());
+                
                 groupSockets();
             }
             catch(SocketTimeoutException e) 
@@ -135,7 +138,6 @@ public class GameServer extends Thread implements IClientManagerService
         
         for(IClientService client : clients)
             client.close();
-
     }
     
     /**
@@ -192,13 +194,35 @@ public class GameServer extends Thread implements IClientManagerService
         {
             switch(msg.getCommand())
             {
-                case "END_TURN": if(!senderIsActive) throw new Exception("Nem te vagy a soron"); game.nextPlayer(); break;
-                case "MSG": sendMessageToAll(msg); break;
-                case "STEP": if(!senderIsActive) throw new Exception("Nem te vagy a soron"); game.setPlayerField(Integer.parseInt(msg.getData())); break;
-                case "PICK_LUCKY_CARD": if(!senderIsActive) throw new Exception("Nem te vagy a soron"); game.pickLuckyCard(Integer.parseInt(msg.getData())); break;
-                case "USE_LUCKY_CARD": if(!senderIsActive) throw new Exception("Nem te vagy a soron"); game.useLuckyCard(Integer.parseInt(msg.getData())); break;
-                case "GET_LUCKY_CARDS": clients.get(senderIndex).sendLuckyCards(game.getLuckyCards()); break;
-                case "GET_BOARD": clients.get(senderIndex).sendBoard(game.getFields()); break;
+                case "END_TURN": 
+                    if(!senderIsActive) 
+                        throw new Exception("Nem te vagy a soron"); 
+                    game.nextPlayer(); 
+                    break;
+                case "MSG": 
+                    sendMessageToAll(msg); 
+                    break;
+                case "STEP": 
+                    if(!senderIsActive) 
+                        throw new Exception("Nem te vagy a soron");
+                    game.setPlayerField(Integer.parseInt(msg.getData())); 
+                    break;
+                case "PICK_LUCKY_CARD": 
+                    if(!senderIsActive)
+                        throw new Exception("Nem te vagy a soron"); 
+                    game.pickLuckyCard(Integer.parseInt(msg.getData())); 
+                    break;
+                case "USE_LUCKY_CARD": 
+                    if(!senderIsActive) 
+                        throw new Exception("Nem te vagy a soron"); 
+                    game.useLuckyCard(Integer.parseInt(msg.getData())); 
+                    break;
+                case "GET_LUCKY_CARDS": 
+                    clients.get(senderIndex).sendLuckyCards(game.getLuckyCards()); 
+                    break;
+                case "GET_BOARD": 
+                    clients.get(senderIndex).sendBoard(game.getFields()); 
+                    break;
             }
             
             response = new Response(ResponseType.OK);
