@@ -4,13 +4,12 @@ before_install:
  - sudo apt-get install maven
 
 stages:
-    - serverTest
-    - clientBuildTest
+    - test
     - deploy
 
 jobs:
     include:
-        - stage: serverTest
+        - stage: test
           script:
           	- cd server
             - mvn clean test
@@ -18,11 +17,9 @@ jobs:
             - mvn javadoc:javadoc
             - mvn package
             - cd ..
-        - stage: clientBuildTest
-          script:
-          - cd scripts
-          - "./clientBuild.sh"
-          - cd ..    
+            - cd scripts
+            - "./clientBuild.sh"
+            - cd ..    
         - stage: deploy
           script: skip
           deploy:
