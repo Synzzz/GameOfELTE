@@ -83,13 +83,13 @@ namespace GameOfELTE.GUI
 
         private void gameSearch_Click(object sender, EventArgs e)
         {
-            using (GameSearchDialog dialog = new GameSearchDialog(Game))
-            {
-                if (dialog.ShowDialog() == DialogResult.Yes)
-                {
+            //using (GameSearchDialog dialog = new GameSearchDialog(Game))
+            //{
+            //    if (dialog.ShowDialog() == DialogResult.Yes)
+            //    {
 
-                }
-            }
+            //    }
+            //}
         }
     }
 }
