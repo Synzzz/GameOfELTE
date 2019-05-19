@@ -21,7 +21,10 @@ matrix:
        - DONE=true
        - cd ..
 before_deploy:
- - ls
+ - cd server
+ - mvn package
+ - cd ../scripts
+ - ./clientBuild.sh
 deploy:
     provider: releases
     api_key:
