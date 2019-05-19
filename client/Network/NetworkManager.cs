@@ -18,7 +18,7 @@ namespace GameOfELTE.Network
         private Dictionary<string, Action<Message>> CommandBindings = new Dictionary<string, Action<Message>>();
         private List<Message> CachedMessages = new List<Message>();
 
-        class SynchronizedMessage
+        private class SynchronizedMessage
         {
             public Message Message { get; set; }
 
@@ -111,6 +111,11 @@ namespace GameOfELTE.Network
         public void BindCommand(string command, Action<Message> method)
         {
             CommandBindings.Add(command, method);
+        }
+
+        public void UnbindCommand(string command)
+        {
+            CommandBindings.Remove(command);
         }
     }
 }

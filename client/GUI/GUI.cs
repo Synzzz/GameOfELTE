@@ -10,6 +10,11 @@ namespace GameOfELTE.GUI
 {
     public class GUI : IGUIService
     {
+        public GUI(MainForm mainForm)
+        {
+
+        }
+
         public void Activate()
         {
             throw new NotImplementedException();

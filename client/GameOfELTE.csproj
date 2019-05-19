@@ -50,6 +50,12 @@
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\LuckyCard.cs" />
     <Compile Include="Game\Player.cs" />
+    <Compile Include="GUI\GameSearchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GameSearchDialog.Designer.cs">
+      <DependentUpon>GameSearchDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GUI.cs" />
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
@@ -69,6 +75,9 @@
     <Compile Include="Network\NetworkManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\GameSearchDialog.resx">
+      <DependentUpon>GameSearchDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

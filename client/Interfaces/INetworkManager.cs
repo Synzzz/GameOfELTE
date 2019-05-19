@@ -16,5 +16,7 @@ namespace GameOfELTE.Interfaces
         Message ReceiveMessage(string command);
 
         void BindCommand(string command, Action<Message> method);
+
+        void UnbindCommand(string command);
     }
 }

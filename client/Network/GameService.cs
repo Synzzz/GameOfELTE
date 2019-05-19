@@ -25,6 +25,8 @@ namespace GameOfELTE.Network
             GUI = gui;
         }
 
+        public INetworkManager NetworkManager => Manager;
+
         public void Connect(string address, int port)
         {
             Manager.Connect(address, port);
@@ -66,6 +68,12 @@ namespace GameOfELTE.Network
             }
 
             return luckyCards;
+        }
+
+        public int GetMaxPlayerCount()
+        {
+            Manager.SendMessage(new Message("GET_MAX_PLAYER_COUNT"));
+            return int.Parse(Manager.ReceiveMessage("MAX_PLAYER_COUNT").Data);
         }
 
         public int GetRandomNumber()

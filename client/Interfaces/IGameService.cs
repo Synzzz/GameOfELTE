@@ -10,6 +10,8 @@ namespace GameOfELTE.Interfaces
 {
     public interface IGameService
     {
+        INetworkManager NetworkManager { get; }
+
         /// <summary>
         /// Csatlakozik az endpoint által meghatározott IP-címen és porton egy szerverhez
         /// </summary>
@@ -65,5 +67,7 @@ namespace GameOfELTE.Interfaces
 
         //Játékos színének beállítása
         void SetPlayerColor(PlayerColor playerColor);
+
+        int GetMaxPlayerCount();
     }
 }
