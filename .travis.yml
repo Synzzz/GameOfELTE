@@ -19,10 +19,7 @@ matrix:
       script:
        - ./clientBuild.sh
        - DONE=true
-
-      after_script:
        - cd ..
-
 deploy:
     provider: releases
     api_key:
