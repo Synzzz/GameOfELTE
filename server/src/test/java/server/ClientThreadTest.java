@@ -28,6 +28,7 @@ import static org.mockito.Mockito.spy;
 
 public class ClientThreadTest {
     private ClientThread thread;
+    private ServerSocket ss;
     private Socket socket, clientSocket;
     private PrintWriter pw;
     private Scanner sc;
@@ -35,15 +36,13 @@ public class ClientThreadTest {
     @BeforeEach
     public void beforeEach() throws Exception
     {
-        try(ServerSocket ss = new ServerSocket(12345))
-        {
-            socket = new Socket("localhost", 12345);
-            clientSocket = ss.accept();
-            sc = new Scanner(clientSocket.getInputStream());
+        ss = new ServerSocket(12345);
+        socket = new Socket("localhost", 12345);
+        clientSocket = ss.accept();
+        sc = new Scanner(clientSocket.getInputStream());
 
-            thread = new ClientThread(socket, null);
-        }
-        
+        thread = new ClientThread(socket, null);
+
         //dummy = new DummyClient();
         //dummy.start();
        
@@ -52,8 +51,10 @@ public class ClientThreadTest {
     @AfterEach
     public void afterEach() throws Exception
     {
+        
         clientSocket.close();
         socket.close();
+        ss.close();
         thread.join();
         //dummy.join();
     }
@@ -200,13 +201,12 @@ public class ClientThreadTest {
     public void sendLuckyCardsTest()
     {
         List<LuckyCard> luckyCards = new ArrayList<>();
-        luckyCards.add(LuckyCardFactory.makeLuckyCard("BonusPoints"));
         luckyCards.add(LuckyCardFactory.makeLuckyCard("Cheating"));
         luckyCards.add(LuckyCardFactory.makeLuckyCard("FourthCourseRequest"));
        
         thread.sendLuckyCards(luckyCards);
         
-        assertEquals(sc.nextLine(), "LUCKY_CARDS;BonusPoints|descriptionPlaceholder|false,Cheating|descriptionPlaceholder|false,FourthCourseRequest|descriptionPlaceholder|true");
+        assertEquals(sc.nextLine(), "LUCKY_CARDS;Puskázás|Rajtakaptak, hogy puskázol, ezért egy véletlenszerűen kiválasztott tárgyat elbuksz.|false,Negyedik tárgyfelvétel|Ez egy megtartható kártya. Ha egy tárgy nem sikerül 3. tárgyfelvételre sem, akkor felhasználható egyszer.|true");
     }
     
     @Test
@@ -214,12 +214,11 @@ public class ClientThreadTest {
     {
         List<Field> fields = new ArrayList<>();
         fields.add(FieldFactory.makeField("BadDate"));
-        fields.add(FieldFactory.makeField("Course"));
         fields.add(FieldFactory.makeField("CourseRequest"));
        
         thread.sendBoard(fields);
         
-        assertEquals(sc.nextLine(), "FIELDS;BadDate|descriptionPlaceholder,Course|descriptionPlaceholder,CourseRequest|descriptionPlaceholder");
+        assertEquals(sc.nextLine(), "FIELDS;Rossz időpont|Egy általad kiválasztott tárgy rossz időpontban van, ezért leadod,Tárgyfelvétel kérvény|Ha még van olyan tárgy, amit nem sikerült felvenned, itt megteheted");
     }
     
     @Test

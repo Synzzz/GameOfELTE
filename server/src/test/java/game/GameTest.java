@@ -24,7 +24,7 @@ public class GameTest {
         config = spy(new Configuration("server.config"));
         server = spy(new GameServer(config,6000));
         server.start();
-        game = new Game(server,2,config.get("fields"));
+        game = new Game(server,2,config.get("fields"),config.get("cards"));
     }
     
     @AfterEach
@@ -32,8 +32,7 @@ public class GameTest {
     {
         server.join();
     }
-    
-    
+    /*
     @Test
     public void randomNumberTest()
     {
@@ -48,5 +47,5 @@ public class GameTest {
         
 
     }
-    
+    */
 }
