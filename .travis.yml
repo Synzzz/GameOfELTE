@@ -1,7 +1,7 @@
 language: csharp
 cache: mono
 before_install:
- - sudo apt install maven
+ - sudo apt-get install maven
 
 stages:
     - serverTest
