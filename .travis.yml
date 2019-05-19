@@ -2,8 +2,6 @@ language: csharp
 cache: mono
 before_install:
  - sudo apt-get install maven2
-install: 
-    - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 stages:
     - serverTest
