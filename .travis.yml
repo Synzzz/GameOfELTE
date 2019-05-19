@@ -11,21 +11,18 @@ stages:
 jobs:
     include:
         - stage: serverTest
-          before_script:
-                - cd server
           script:
-                - mvn clean test
-                - mvn verify
-                - mvn javadoc:javadoc
-          after_script:
-                - cd ..
+          	- cd server
+            - mvn clean test
+            - mvn verify
+            - mvn javadoc:javadoc
+            - mvn package
+            - cd ..
         - stage: clientBuildTest
-          before_script:
-                - cd scripts
           script:
-                - "./clientBuild.sh"
-          after_script:
-                - cd ..
+          - cd scripts
+          - "./clientBuild.sh"
+          - cd ..    
         - stage: deploy
           script: skip
           deploy:
