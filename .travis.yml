@@ -20,6 +20,13 @@ matrix:
        - ./clientBuild.sh
        - DONE=true
        - cd ..
+before_deploy:
+- ls
+- cd server
+- ls
+- cd target
+- cd ..
+- cd ..
 deploy:
     provider: releases
     api_key:
