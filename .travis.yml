@@ -21,12 +21,11 @@ matrix:
        - DONE=true
        - cd ..
 before_deploy:
-- cd server/target
+- cd client
+- ls
+- cd bin
 - ls
 - cd ..
-- cd ..
-- cd scripts
-- ./clientBuild.sh
 - cd ..
 deploy:
     provider: releases
