@@ -15,13 +15,18 @@ jobs:
             - mvn clean test
             - mvn verify
             - mvn javadoc:javadoc
-            - mvn package
             - cd ..
             - cd scripts
             - "./clientBuild.sh"
             - cd ..    
         - stage: deploy
-          script: skip
+          script: 
+            - cd server
+            - mvn package
+            - cd ..
+            - cd scripts
+            - "./clientBuild.sh"
+            - cd ..    
           deploy:
                 provider: releases
                 api_key:
